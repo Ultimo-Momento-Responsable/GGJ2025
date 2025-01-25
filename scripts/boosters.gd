@@ -13,12 +13,7 @@ func _process(delta):
 		spawn_object()
 
 func spawn_object():
-	# Instanciar el objeto
 	var new_object = booster.instantiate()
-	
-	# Configurar su posición
+	add_child(new_object)
 	new_object.global_transform.origin = Vector3(randf_range(-20, 20), randf_range(-10, 10), 0)
 	
-	# Añadirlo a la escena
-	add_child(new_object)
-	print("¡Objeto instanciado!")
