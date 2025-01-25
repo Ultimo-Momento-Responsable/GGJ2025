@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://btutgdslx4cfa"]
+[gd_scene load_steps=8 format=3 uid="uid://btutgdslx4cfa"]
 
 [ext_resource type="PackedScene" uid="uid://da7bjvpvdxtn7" path="res://Assets/3d_models/boundary/boundaryGlass.glb" id="1_rxvlb"]
 

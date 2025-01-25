@@ -15,5 +15,5 @@ func _process(delta):
 func spawn_object():
 	var new_object = booster.instantiate()
 	add_child(new_object)
-	new_object.global_transform.origin = Vector3(randf_range(-20, 20), randf_range(-10, 10), 0)
+	new_object.global_transform.origin = Vector3(randf_range(-18, 18), randf_range(-10, 10), 0)
 	
