@@ -25,3 +25,9 @@ func _custom_physics(delta: float) -> void:
 			velocity = Vector3.ZERO
 
 	move_and_slide()
+	# Si hay una colisión, ajusta la dirección
+	if get_slide_collision_count() > 0:
+		for i in range(get_slide_collision_count()):
+			var collision = get_slide_collision(i)
+			var normal = collision.get_normal()  # Obtén la normal de la colisión
+			velocity = velocity.bounce(normal)  # Rebotar usando la normal
