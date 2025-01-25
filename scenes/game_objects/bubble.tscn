@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cdafg7k4x56gq"]
+[gd_scene load_steps=7 format=3 uid="uid://d1d5ot126tfxq"]
 
 [ext_resource type="Script" path="res://scripts/bubble.gd" id="1_rucui"]
 [ext_resource type="Shader" path="res://scenes/game_objects/bubble.gdshader" id="2_noukl"]
