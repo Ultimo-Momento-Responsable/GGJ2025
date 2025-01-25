@@ -15,9 +15,12 @@ func _custom_physics(delta: float) -> void:
 	if get_slide_collision_count() > 0:
 		for i in range(get_slide_collision_count()):
 			var collision = get_slide_collision(i)
-			var normal = collision.get_normal()  # Obtén la normal de la colisión
-			velocity = velocity.bounce(normal)  # Rebotar usando la normal
-		return
+			var collider := collision.get_collider()
+			
+			if collider.is_in_group("hazards"):
+				_pop_bubble()
+			else:
+				_bounce(collision.get_normal())
 
 	input_direction = Input.get_vector("move_left_player" + player, "move_right_player" + player, "move_down_player" + player, "move_up_player" + player)
 	input_direction = input_direction.normalized()
@@ -33,3 +36,10 @@ func _custom_physics(delta: float) -> void:
 			velocity = Vector3.ZERO
 
 	move_and_slide()
+
+
+func _pop_bubble() -> void:
+	queue_free()
+
+func _bounce(normal: Vector3) -> void:
+	velocity = velocity.bounce(normal)

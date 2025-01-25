@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b0ka3t3j4dwb1"]
 
 [ext_resource type="PackedScene" uid="uid://d1d5ot126tfxq" path="res://scenes/game_objects/bubble.tscn" id="2_8abf3"]
-[ext_resource type="PackedScene" uid="uid://bbvvf01nxxnj3" path="res://scenes/game_objects/sword.tscn" id="2_l5i0h"]
+[ext_resource type="PackedScene" uid="uid://chwvqg0ld6qj0" path="res://scenes/game_objects/sword.tscn" id="2_l5i0h"]
 
 [sub_resource type="Environment" id="Environment_vhovg"]
 background_energy_multiplier = 1.84
@@ -28,9 +28,16 @@ directional_shadow_blend_splits = true
 directional_shadow_pancake_size = 0.0
 sky_mode = 1
 
-[node name="Bubble" parent="WorldEnvironment" instance=ExtResource("2_8abf3")]
+[node name="Player1" parent="WorldEnvironment" instance=ExtResource("2_8abf3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, -7, 0)
+collision_mask = 5
+safe_margin = 0.5
 
 [node name="Sword" parent="WorldEnvironment" instance=ExtResource("2_l5i0h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.993, -10, 0.509)
 collision_layer = 4
-collision_mask = 4
+collision_mask = 5
+
+[node name="Player2" parent="WorldEnvironment" instance=ExtResource("2_8abf3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, -7, 0)
+player = "2"
