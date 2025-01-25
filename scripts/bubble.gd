@@ -24,7 +24,7 @@ func _process_player_input() -> void:
 	acceleration += (Vector3(input_direction.x, input_direction.y, 0) * applied_force) / mass
 
 func _apply_custom_phisycs(delta: float) -> void:
-	_apply_friction()
+	#_apply_friction()
 	_apply_acceleration(delta)
 	
 func _apply_acceleration(delta: float) -> void:
@@ -33,16 +33,13 @@ func _apply_acceleration(delta: float) -> void:
 	velocity += adjusted_acceleration
 	delta_velocity = velocity - previous_velocity
 	
-func _apply_friction() -> void:
-	if !is_equal_approx(velocity.length(), 0):
-		var friction_direction = velocity.normalized() * -1
-		acceleration += friction_constant * friction_direction
-	else:
-		acceleration = Vector3.ZERO
+#func _apply_friction() -> void:
+	#if !is_equal_approx(velocity.length(), 0):
+		#var friction_direction = velocity.normalized() * -1
+		#acceleration += friction_constant * friction_direction
+	#else:
+		#acceleration = Vector3.ZERO
 
-# Media panceta
-# Media especial
-# Media bongo bong
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
