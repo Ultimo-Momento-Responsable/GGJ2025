@@ -1,14 +1,19 @@
-[gd_scene load_steps=8 format=3 uid="uid://b0ka3t3j4dwb1"]
+[gd_scene load_steps=10 format=3 uid="uid://b0ka3t3j4dwb1"]
 
 [ext_resource type="PackedScene" uid="uid://d1d5ot126tfxq" path="res://scenes/game_objects/bubble.tscn" id="2_8abf3"]
 [ext_resource type="PackedScene" uid="uid://chwvqg0ld6qj0" path="res://scenes/game_objects/sword.tscn" id="2_l5i0h"]
 [ext_resource type="PackedScene" uid="uid://btutgdslx4cfa" path="res://scenes/game_objects/limits.tscn" id="2_r4jfj"]
 [ext_resource type="Script" path="res://scripts/boosters.gd" id="3_fbx7w"]
 [ext_resource type="PackedScene" path="res://scenes/game_objects/bubbleBoost.tscn" id="3_t5qi0"]
+[ext_resource type="PackedScene" uid="uid://c1b5h1m875v5b" path="res://Assets/3d_models/hand/hand.glb" id="6_7p6p1"]
+[ext_resource type="PackedScene" uid="uid://bcglydh24wq21" path="res://Assets/3d_models/sword/sword.glb" id="7_tulmf"]
 
 [sub_resource type="Environment" id="Environment_vhovg"]
-background_energy_multiplier = 1.84
+background_color = Color(1, 1, 1, 1)
 background_canvas_max_layer = -1
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.5
 
 [sub_resource type="Environment" id="Environment_4rdk0"]
 background_color = Color(1, 1, 1, 1)
@@ -30,7 +35,7 @@ environment = SubResource("Environment_4rdk0")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
 transform = Transform3D(0.0201453, 0.910428, -0.413176, -0.532895, 0.359442, 0.766044, 0.845941, 0.204747, 0.492404, -99.9659, 99.9685, -0.00371933)
-light_energy = 2.5
+light_indirect_energy = 3.38
 light_angular_distance = 47.27
 directional_shadow_blend_splits = true
 directional_shadow_pancake_size = 0.0
@@ -54,3 +59,9 @@ collision_mask = 5
 [node name="Player2" parent="WorldEnvironment" instance=ExtResource("2_8abf3")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 15, -7, 0)
 player = "2"
+
+[node name="hand" parent="WorldEnvironment" instance=ExtResource("6_7p6p1")]
+transform = Transform3D(-0.201608, 0, 0.979466, 0, 1, 0, -0.979466, 0, -0.201608, 2.87815, 0, 8.3055)
+
+[node name="sword" parent="WorldEnvironment" instance=ExtResource("7_tulmf")]
+transform = Transform3D(0.234701, 0, 0.972068, 0, 1, 0, -0.972068, 0, 0.234701, -2.26165, 0.0625887, 11.3167)

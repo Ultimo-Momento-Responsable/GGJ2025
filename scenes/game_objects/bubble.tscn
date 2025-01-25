@@ -36,4 +36,5 @@ script = ExtResource("1_rucui")
 mesh = SubResource("SphereMesh_4bwjl")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+visible = false
 shape = SubResource("SphereShape3D_m5rrv")
