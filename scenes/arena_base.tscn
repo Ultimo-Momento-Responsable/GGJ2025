@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://cndcrfwk8px4f" path="res://scenes/game_objects/bubbleBoost.tscn" id="3_t5qi0"]
 [ext_resource type="Script" path="res://scripts/swords.gd" id="6_vqiep"]
 [ext_resource type="PackedScene" uid="uid://bwbrq0sroeebg" path="res://scenes/game_objects/cone.tscn" id="7_d5m40"]
+[ext_resource type="Script" path="res://scripts/weights.gd" id="7_46lpy"]
+[ext_resource type="PackedScene" uid="uid://dlq4cok71iv22" path="res://scenes/game_objects/weight.tscn" id="8_jmowg"]
 
 [sub_resource type="Environment" id="Environment_vhovg"]
 background_color = Color(1, 1, 1, 1)
@@ -72,3 +74,6 @@ transform = Transform3D(0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, 
 
 [node name="ConeDL" parent="WorldEnvironment" instance=ExtResource("7_d5m40")]
 transform = Transform3D(0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0, 1, -15.9386, -7.96325, 0)
+[node name="Weights" type="Node3D" parent="WorldEnvironment"]
+script = ExtResource("7_46lpy")
+booster = ExtResource("8_jmowg")

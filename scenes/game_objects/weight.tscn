@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlq4cok71iv22"]
+
+[ext_resource type="PackedScene" uid="uid://bc012dmlvsw10" path="res://Assets/3d_models/weight/weight.glb" id="1_k2ioh"]
+[ext_resource type="Script" path="res://scripts/weight.gd" id="1_li8sa"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ycbij"]
+size = Vector3(1.36676, 1.83582, 1)
+
+[node name="RigidBody3D" type="RigidBody3D" groups=["hazards"]]
+mass = 10.0
+script = ExtResource("1_li8sa")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00912476, 1.01934, 0)
+shape = SubResource("BoxShape3D_ycbij")
+
+[node name="weight" parent="." instance=ExtResource("1_k2ioh")]
