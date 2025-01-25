@@ -1,12 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://b0ka3t3j4dwb1"]
+[gd_scene load_steps=8 format=3 uid="uid://b0ka3t3j4dwb1"]
 
 [ext_resource type="PackedScene" uid="uid://d1d5ot126tfxq" path="res://scenes/game_objects/bubble.tscn" id="2_8abf3"]
 [ext_resource type="PackedScene" uid="uid://chwvqg0ld6qj0" path="res://scenes/game_objects/sword.tscn" id="2_l5i0h"]
 [ext_resource type="PackedScene" uid="uid://btutgdslx4cfa" path="res://scenes/game_objects/limits.tscn" id="2_r4jfj"]
 [ext_resource type="Script" path="res://scripts/boosters.gd" id="3_fbx7w"]
 [ext_resource type="PackedScene" path="res://scenes/game_objects/bubbleBoost.tscn" id="3_t5qi0"]
-[ext_resource type="PackedScene" uid="uid://c1b5h1m875v5b" path="res://Assets/3d_models/hand/hand.glb" id="6_7p6p1"]
-[ext_resource type="PackedScene" uid="uid://bcglydh24wq21" path="res://Assets/3d_models/sword/sword.glb" id="7_tulmf"]
 
 [sub_resource type="Environment" id="Environment_vhovg"]
 background_color = Color(1, 1, 1, 1)
@@ -27,7 +25,7 @@ glow_bloom = 1.0
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 16.8301)
 environment = SubResource("Environment_vhovg")
-projection = 1
+fov = 68.5
 size = 21.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -59,9 +57,3 @@ collision_mask = 5
 [node name="Player2" parent="WorldEnvironment" instance=ExtResource("2_8abf3")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 15, -7, 0)
 player = "2"
-
-[node name="hand" parent="WorldEnvironment" instance=ExtResource("6_7p6p1")]
-transform = Transform3D(-0.201608, 0, 0.979466, 0, 1, 0, -0.979466, 0, -0.201608, 2.87815, 0, 8.3055)
-
-[node name="sword" parent="WorldEnvironment" instance=ExtResource("7_tulmf")]
-transform = Transform3D(0.234701, 0, 0.972068, 0, 1, 0, -0.972068, 0, 0.234701, -2.26165, 0.0625887, 11.3167)
