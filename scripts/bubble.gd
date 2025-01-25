@@ -35,7 +35,9 @@ func _custom_physics(delta: float) -> void:
 					_pop_bubble()
 				elif collider.is_in_group('boosters'):
 					collider.queue_free()
-					scale *= 1.2
+					scale += Vector3(0.3, 0.3, 0.3)
+					if (max_speed > 8):
+						max_speed -= 2
 				else:
 					_bounce(collision.get_normal())
 			
