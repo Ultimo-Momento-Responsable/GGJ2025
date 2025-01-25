@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dhp5tya6rtunn"]
+[gd_scene load_steps=5 format=3 uid="uid://c0grj3cr75qod"]
 
 [ext_resource type="Shader" path="res://control.gdshader" id="1_mm5tg"]
 [ext_resource type="PackedScene" uid="uid://b0ka3t3j4dwb1" path="res://scenes/arena_base.tscn" id="2_bxpo0"]
