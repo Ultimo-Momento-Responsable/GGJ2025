@@ -1,10 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://cdafg7k4x56gq"]
+[gd_scene load_steps=7 format=3 uid="uid://d1d5ot126tfxq"]
 
 [ext_resource type="Script" path="res://scripts/bubble.gd" id="1_rucui"]
 [ext_resource type="Shader" path="res://scenes/game_objects/bubble.gdshader" id="2_noukl"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lj0sk"]
+diffuse_mode = 3
+albedo_color = Color(0.536745, 0.780457, 1, 1)
+refraction_scale = 1.0
+detail_enabled = true
+detail_blend_mode = 1
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vfyjj"]
 render_priority = 0
+next_pass = SubResource("StandardMaterial3D_lj0sk")
 shader = ExtResource("2_noukl")
 shader_parameter/fuwafuwa_speed = 3.0
 shader_parameter/fuwafuwa_size = 0.1
@@ -19,7 +27,9 @@ material = SubResource("ShaderMaterial_vfyjj")
 [sub_resource type="SphereShape3D" id="SphereShape3D_m5rrv"]
 
 [node name="Bubble" type="CharacterBody3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 motion_mode = 1
+safe_margin = 0.5
 script = ExtResource("1_rucui")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

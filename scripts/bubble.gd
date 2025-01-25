@@ -29,5 +29,12 @@ func _custom_physics(delta: float) -> void:
 	if get_slide_collision_count() > 0:
 		for i in range(get_slide_collision_count()):
 			var collision = get_slide_collision(i)
-			var normal = collision.get_normal()  # Obtén la normal de la colisión
-			velocity = velocity.bounce(normal)  # Rebotar usando la normal
+			var collider = collision.get_collider()
+			if collider: 
+				if collider.is_in_group('boosters'):
+					collider.queue_free()
+					scale *= 1.2
+				else:
+					var normal = collision.get_normal()  # Obtén la normal de la colisión
+					velocity = velocity.bounce(normal)  # Rebotar usando la normal
+			
