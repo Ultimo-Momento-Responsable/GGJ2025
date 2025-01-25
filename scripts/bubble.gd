@@ -5,9 +5,12 @@ class_name Bubble
 @export var max_speed: float = 30
 @export var friction: float = 20
 @export var player: String = "1"
-@export var aoe_range: float = 2  # Rango extra desde los bordes
+@export var aoe_range: float = 2.5  # Rango extra desde los bordes
 @export var aoe_duration: float = 0.2  # Duración del AOE en segundos
-@export var extra_size: float = 0.3
+@export var extra_size: float = 0.5
+@export var power_force: float = 15
+
+var initial_scale = scale
 var boosters: int = 0
 var aoe_active: bool = false  # Para evitar activar múltiples AOEs al mismo tiempo
 
@@ -103,8 +106,15 @@ func _throw_power() -> void:
 
 	# Conectar señal para detectar otros personajes
 	aoe.connect("body_entered", self._on_aoe_body_entered)
+	
+	# Crear y configurar el Tween
+	var tween = create_tween()
+	# Animar la escala para que se expanda
+	tween.tween_property(self, "scale", Vector3(scale.x + aoe_range, scale.y + aoe_range, scale.z + aoe_range), aoe_duration)
+	await tween.finished
+	scale = initial_scale
 
-	# el AOE después de `aoe_duration`
+	# el AOE después de aoe_duration
 	await get_tree().create_timer(aoe_duration).timeout
 	aoe.queue_free()
 	aoe_active = false
@@ -122,7 +132,7 @@ func apply_aoe_effect(target_bubble: Bubble) -> void:
 	var direction = (target_bubble.global_transform.origin - global_transform.origin).normalized()  # Direccion opuesta a 'self'
 
 	# La fuerza que se aplicará al personaje afectado
-	var force = direction * (10 * boosters)   # Ajusta la magnitud de la fuerza a tu gusto
+	var force = direction * (power_force * boosters)   # Ajusta la magnitud de la fuerza a tu gusto
 	boosters = 0
 	# Si el objetivo es un personaje (Bubble), aplicamos la fuerza
 	if target_bubble.is_in_group("bubbles"):
