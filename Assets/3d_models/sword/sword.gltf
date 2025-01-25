@@ -1,0 +1,182 @@
+{
+    "asset": {
+        "version": "2.0",
+        "generator": "Open Asset Import Library (assimp v3.1.59755898)"
+    },
+    "accessors": [
+        {
+            "bufferView": 0,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 232,
+            "type": "VEC3",
+            "max": [
+                0.3458411395549774,
+                1.8175557851791382,
+                0.15780454874038697
+            ],
+            "min": [
+                -0.3458411693572998,
+                -0.12555551528930665,
+                -0.15780454874038697
+            ]
+        },
+        {
+            "bufferView": 1,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 232,
+            "type": "VEC3",
+            "max": [
+                0.8897185325622559,
+                1.0,
+                0.9895639419555664
+            ],
+            "min": [
+                -0.8897185325622559,
+                -1.0,
+                -0.9895639419555664
+            ]
+        },
+        {
+            "bufferView": 2,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 232,
+            "type": "VEC4",
+            "max": [
+                0.9993558526039124,
+                0.9963229894638062,
+                0.9989838004112244,
+                0.9993558526039124
+            ],
+            "min": [
+                -1.0,
+                -1.0,
+                -1.0,
+                -1.0
+            ]
+        },
+        {
+            "bufferView": 3,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 232,
+            "type": "VEC2",
+            "max": [
+                1.0012614727020264,
+                0.9790079593658447
+            ],
+            "min": [
+                0.018546700477600099,
+                0.019191503524780275
+            ]
+        },
+        {
+            "bufferView": 4,
+            "byteOffset": 0,
+            "componentType": 5123,
+            "count": 432,
+            "type": "SCALAR",
+            "max": [
+                231.0
+            ],
+            "min": [
+                0.0
+            ]
+        }
+    ],
+    "buffers": [
+        {
+            "byteLength": 12000,
+            "uri": "sword.bin"
+        }
+    ],
+    "bufferViews": [
+        {
+            "buffer": 0,
+            "byteOffset": 0,
+            "byteLength": 2784,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 2784,
+            "byteLength": 2784,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 5568,
+            "byteLength": 3712,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 9280,
+            "byteLength": 1856,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 11136,
+            "byteLength": 864,
+            "target": 34963
+        }
+    ],
+    "materials": [
+        {
+            "name": "DefaultMaterial"
+        }
+    ],
+    "meshes": [
+        {
+            "name": "Cylinder",
+            "primitives": [
+                {
+                    "mode": 4,
+                    "material": 0,
+                    "indices": 4,
+                    "attributes": {
+                        "POSITION": 0,
+                        "NORMAL": 1,
+                        "TANGENT": 2,
+                        "TEXCOORD_0": 3
+                    }
+                }
+            ]
+        }
+    ],
+    "nodes": [
+        {
+            "name": "Mango",
+            "matrix": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.12624049186706544,
+                0.0,
+                1.0
+            ],
+            "mesh": 0
+        }
+    ],
+    "scenes": [
+        {
+            "nodes": [
+                0
+            ]
+        }
+    ],
+    "scene": 0
+}
