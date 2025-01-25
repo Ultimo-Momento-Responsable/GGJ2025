@@ -5,6 +5,12 @@
 [ext_resource type="PackedScene" uid="uid://btutgdslx4cfa" path="res://scenes/game_objects/limits.tscn" id="2_r4jfj"]
 [ext_resource type="Script" path="res://scripts/boosters.gd" id="3_fbx7w"]
 [ext_resource type="PackedScene" path="res://scenes/game_objects/bubbleBoost.tscn" id="3_t5qi0"]
+[ext_resource type="PackedScene" path="res://scenes/game_objects/sword.tscn" id="2_l5i0h"]
+[ext_resource type="PackedScene" uid="uid://btutgdslx4cfa" path="res://scenes/game_objects/limits.tscn" id="2_r4jfj"]
+[ext_resource type="Script" path="res://scripts/boosters.gd" id="3_fbx7w"]
+[ext_resource type="PackedScene" uid="uid://cndcrfwk8px4f" path="res://scenes/game_objects/bubbleBoost.tscn" id="3_t5qi0"]
+[ext_resource type="PackedScene" uid="uid://b7evgysqj3du6" path="res://Assets/3d_models/hand/hand.glb" id="6_7p6p1"]
+[ext_resource type="PackedScene" uid="uid://bin07sy4tcoi0" path="res://Assets/3d_models/sword/sword.glb" id="7_tulmf"]
 
 [sub_resource type="Environment" id="Environment_vhovg"]
 background_color = Color(1, 1, 1, 1)
@@ -40,10 +46,6 @@ directional_shadow_blend_splits = true
 directional_shadow_pancake_size = 0.0
 sky_mode = 1
 
-[node name="Player1" parent="WorldEnvironment" instance=ExtResource("2_8abf3")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -15, -7, 0)
-collision_mask = 5
-
 [node name="Limits" parent="WorldEnvironment" instance=ExtResource("2_r4jfj")]
 
 [node name="Boosters" type="Node3D" parent="WorldEnvironment"]
@@ -53,6 +55,10 @@ booster = ExtResource("3_t5qi0")
 [node name="Sword" parent="WorldEnvironment" instance=ExtResource("2_l5i0h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.993, -10, 0.509)
 collision_layer = 4
+collision_mask = 5
+
+[node name="Player1" parent="WorldEnvironment" instance=ExtResource("2_8abf3")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -15, -7, 0)
 collision_mask = 5
 
 [node name="Player2" parent="WorldEnvironment" instance=ExtResource("2_8abf3")]

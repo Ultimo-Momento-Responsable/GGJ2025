@@ -40,7 +40,7 @@ material = SubResource("ShaderMaterial_vfyjj")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_m5rrv"]
 
-[node name="Bubble" type="CharacterBody3D"]
+[node name="Bubble" type="CharacterBody3D" groups=["bubbles"]]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 motion_mode = 1
 safe_margin = 0.5
