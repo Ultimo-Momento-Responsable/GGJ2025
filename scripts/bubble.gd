@@ -85,8 +85,8 @@ func _bounce(normal: Vector3) -> void:
 func _throw_power() -> void:
 	if aoe_active:
 		return  # No permitir múltiples AOEs al mismo tiempo
-	boosters -= 1
-	scale -= Vector3(extra_size, extra_size, extra_size) 
+	var size_to_remove = extra_size * boosters
+	scale -= Vector3(size_to_remove, size_to_remove, size_to_remove) 
 	aoe_active = true
 	
 	# Crear un Area3D para el AOE
@@ -122,8 +122,8 @@ func apply_aoe_effect(target_bubble: Bubble) -> void:
 	var direction = (target_bubble.global_transform.origin - global_transform.origin).normalized()  # Direccion opuesta a 'self'
 
 	# La fuerza que se aplicará al personaje afectado
-	var force = direction * 25  # Ajusta la magnitud de la fuerza a tu gusto
-
+	var force = direction * (10 * boosters)   # Ajusta la magnitud de la fuerza a tu gusto
+	boosters = 0
 	# Si el objetivo es un personaje (Bubble), aplicamos la fuerza
 	if target_bubble.is_in_group("bubbles"):
 		target_bubble.velocity += force  # Aumentamos la velocidad en la dirección opuesta
