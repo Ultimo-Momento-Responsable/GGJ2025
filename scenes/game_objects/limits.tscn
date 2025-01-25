@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://btutgdslx4cfa"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_5usp4"]
+
+[node name="Limits" type="Node"]
+
+[node name="izq" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 23, 0, 0, 0, 1, -18.5, -0.014, 0)
+mesh = SubResource("BoxMesh_5usp4")
+skeleton = NodePath("../..")
+
+[node name="der" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 23, 0, 0, 0, 1, 18.5, 0, 0)
+mesh = SubResource("BoxMesh_5usp4")
+skeleton = NodePath("../../..")
+
+[node name="abajo" type="MeshInstance3D" parent="."]
+transform = Transform3D(45, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10.5, 0)
+mesh = SubResource("BoxMesh_5usp4")
+skeleton = NodePath("../../..")
+
+[node name="arriba" type="MeshInstance3D" parent="."]
+transform = Transform3D(45, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.5, 0)
+mesh = SubResource("BoxMesh_5usp4")
+skeleton = NodePath("../../..")
