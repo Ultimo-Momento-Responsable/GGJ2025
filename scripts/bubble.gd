@@ -5,7 +5,11 @@ class_name Bubble
 @export var max_speed: float = 30
 @export var friction: float = 20
 @export var player: String = "1"
-var coolDown: float = 0.2
+@export var aoe_range: float = 2  # Rango extra desde los bordes
+@export var aoe_duration: float = 1.0  # Duración del AOE en segundos
+@export var extra_size: float = 0.3
+var boosters: int = 0
+var aoe_active: bool = false  # Para evitar activar múltiples AOEs al mismo tiempo
 
 func _ready() -> void:
 	# Set color according to which type of bubble I am
@@ -21,9 +25,6 @@ func _physics_process(delta: float) -> void:
 	_custom_physics(delta)
 
 func _custom_physics(delta: float) -> void:
-	if coolDown > 0:
-		coolDown -= delta
-
 	var input_direction = Input.get_vector("move_left_player" + player, "move_right_player" + player, "move_down_player" + player, "move_up_player" + player)
 	input_direction = input_direction.normalized()
 
@@ -36,7 +37,11 @@ func _custom_physics(delta: float) -> void:
 			velocity -= velocity.normalized() * friction * delta
 		else:
 			velocity = Vector3.ZERO
-
+	
+	if Input.is_action_pressed("power_player" + player):
+		if boosters > 0:
+			_throw_power()
+	
 	move_and_slide()
 
 	# Detectar colisiones
@@ -52,7 +57,8 @@ func _custom_physics(delta: float) -> void:
 				_pop_bubble()
 			elif collider and collider.is_in_group("boosters"):
 				collider.queue_free()
-				scale += Vector3(0.3, 0.3, 0.3)
+				boosters += 1
+				scale += Vector3(extra_size, extra_size, extra_size)
 				if max_speed > 8:
 					max_speed -= 2
 			else:
@@ -75,3 +81,49 @@ func _pop_bubble() -> void:
 
 func _bounce(normal: Vector3) -> void:
 	velocity = velocity.bounce(normal)
+
+func _throw_power() -> void:
+	if aoe_active:
+		return  # No permitir múltiples AOEs al mismo tiempo
+	boosters -= 1
+	scale -= Vector3(extra_size, extra_size, extra_size) 
+	aoe_active = true
+	
+	# Crear un Area3D para el AOE
+	var aoe = Area3D.new()
+	var shape = SphereShape3D.new()
+	var radius = (scale.x * 0.5) + aoe_range  # Tamaño de la burbuja más el rango extra
+	shape.radius = radius
+
+	var collision_shape = CollisionShape3D.new()
+	collision_shape.shape = shape
+
+	aoe.add_child(collision_shape)
+	add_child(aoe)
+
+	# Conectar señal para detectar otros personajes
+	aoe.connect("body_entered", self._on_aoe_body_entered)
+
+	# el AOE después de `aoe_duration`
+	await get_tree().create_timer(aoe_duration).timeout
+	aoe.queue_free()
+	aoe_active = false
+
+func _on_aoe_body_entered(body: Node) -> void:
+	# Asegurarnos de que estamos afectando solo a las otras burbujas y no a sí mismo
+	if body is Bubble and body != self:
+		print("AOE hit bubble: ", body.name, " - ", self.name)
+		apply_aoe_effect(body)  # Ahora pasamos el 'body', no 'self'
+
+func apply_aoe_effect(target_bubble: Bubble) -> void:
+	# Lógica para aplicar el efecto del AOE
+	print("Applying AOE effect to: ", target_bubble.name, " from ", self.name)
+	
+	var direction = (target_bubble.global_transform.origin - global_transform.origin).normalized()  # Direccion opuesta a 'self'
+
+	# La fuerza que se aplicará al personaje afectado
+	var force = direction * 25  # Ajusta la magnitud de la fuerza a tu gusto
+
+	# Si el objetivo es un personaje (Bubble), aplicamos la fuerza
+	if target_bubble.is_in_group("bubbles"):
+		target_bubble.velocity += force  # Aumentamos la velocidad en la dirección opuesta
