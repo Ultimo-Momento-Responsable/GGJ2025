@@ -4,11 +4,12 @@
 [ext_resource type="Script" path="res://scripts/sword.gd" id="1_ye3qc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kdsnl"]
-size = Vector3(0.355469, 1.11047, 0.0783691)
+size = Vector3(0.355, 2.33, 0.078)
 
 [node name="Sword" type="RigidBody3D" groups=["hazards"]]
 axis_lock_linear_x = true
 axis_lock_linear_y = true
+axis_lock_linear_z = true
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 mass = 0.001
@@ -20,5 +21,5 @@ script = ExtResource("1_ye3qc")
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 2.45691, 0, 0, 0, 1, 0, 2.24984, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.24984, 0)
 shape = SubResource("BoxShape3D_kdsnl")

@@ -8,7 +8,6 @@ func _ready() -> void:
 	start_direction = Vector3(randf_range(-1, 1), randf_range(-1, 1), 0).normalized()
 	linear_velocity = start_direction * speed
 
-
 func _process(delta: float) -> void:
 	if remaining_time <= 0:
 		queue_free()
