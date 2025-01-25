@@ -1,11 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://d1d5ot126tfxq"]
+[gd_scene load_steps=5 format=3 uid="uid://cdafg7k4x56gq"]
 
 [ext_resource type="Script" path="res://scripts/bubble.gd" id="1_rucui"]
+[ext_resource type="Shader" path="res://scenes/game_objects/bubble.gdshader" id="2_noukl"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wdt8o"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eord0"]
+albedo_color = Color(0.4896, 0.63072, 0.96, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cdusv"]
+render_priority = 0
+next_pass = SubResource("StandardMaterial3D_eord0")
+shader = ExtResource("2_noukl")
+shader_parameter/fuwafuwa_speed = 3.0
+shader_parameter/fuwafuwa_size = 0.1
+shader_parameter/outline_color = Color(0.4896, 0.56016, 0.96, 1)
+shader_parameter/outline_ratio = 2.0
+shader_parameter/noise_speed = 0.1
+shader_parameter/noise_scale = 0.3
 
 [node name="Bubble" type="CharacterBody3D"]
 script = ExtResource("1_rucui")
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="."]
-material = SubResource("StandardMaterial3D_wdt8o")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000413597, -0.0043478, 0.000259161)
+radial_segments = 16
+rings = 16
+smooth_faces = false
+material = SubResource("ShaderMaterial_cdusv")
