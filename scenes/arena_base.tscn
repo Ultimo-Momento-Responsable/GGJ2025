@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b0ka3t3j4dwb1"]
 
-[ext_resource type="PackedScene" uid="uid://cdafg7k4x56gq" path="res://scenes/game_objects/bubble.tscn" id="2_8abf3"]
+[ext_resource type="PackedScene" uid="uid://d1d5ot126tfxq" path="res://scenes/game_objects/bubble.tscn" id="2_8abf3"]
 
 [sub_resource type="Environment" id="Environment_vhovg"]
 background_energy_multiplier = 1.84
