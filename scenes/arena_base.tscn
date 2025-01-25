@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://b0ka3t3j4dwb1"]
+[gd_scene load_steps=5 format=3 uid="uid://b0ka3t3j4dwb1"]
 
 [ext_resource type="PackedScene" uid="uid://d1d5ot126tfxq" path="res://scenes/game_objects/bubble.tscn" id="2_8abf3"]
+[ext_resource type="PackedScene" uid="uid://btutgdslx4cfa" path="res://scenes/game_objects/limits.tscn" id="2_r4jfj"]
 
 [sub_resource type="Environment" id="Environment_vhovg"]
 background_energy_multiplier = 1.84
@@ -28,3 +29,5 @@ directional_shadow_pancake_size = 0.0
 sky_mode = 1
 
 [node name="Bubble" parent="WorldEnvironment" instance=ExtResource("2_8abf3")]
+
+[node name="Limits" parent="WorldEnvironment" instance=ExtResource("2_r4jfj")]
