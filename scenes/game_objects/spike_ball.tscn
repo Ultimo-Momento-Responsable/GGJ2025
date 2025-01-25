@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cnm8thecqnvmi"]
+
+[ext_resource type="Script" path="res://scripts/spike_ball.gd" id="1_fl4ry"]
+[ext_resource type="PackedScene" uid="uid://wy16usqa6nud" path="res://Assets/3d_models/block_cube/block_ball.glb" id="2_bmj6n"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_wgg1f"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_padk4"]
+
+[node name="SpikeBall" type="RigidBody3D" groups=["hazards"]]
+collision_layer = 4
+collision_mask = 5
+mass = 0.001
+physics_material_override = SubResource("PhysicsMaterial_wgg1f")
+gravity_scale = 0.0
+script = ExtResource("1_fl4ry")
+
+[node name="block_ball" parent="." instance=ExtResource("2_bmj6n")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0)
+shape = SubResource("SphereShape3D_padk4")
+
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
