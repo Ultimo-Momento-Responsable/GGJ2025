@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0ka3t3j4dwb1"]
+
+[ext_resource type="PackedScene" uid="uid://cdafg7k4x56gq" path="res://scenes/game_objects/bubble.tscn" id="1_207b6"]
+
+[sub_resource type="Environment" id="Environment_vhovg"]
+background_energy_multiplier = 1.84
+
+[node name="ArenaBase" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 16.8301)
+environment = SubResource("Environment_vhovg")
+projection = 1
+size = 21.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.0201453, 0.910428, -0.413176, -0.532895, 0.359442, 0.766044, 0.845941, 0.204747, 0.492404, -100, 100, 0)
+directional_shadow_blend_splits = true
+
+[node name="Bubble" parent="." instance=ExtResource("1_207b6")]
