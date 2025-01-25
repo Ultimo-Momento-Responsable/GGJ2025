@@ -1,13 +1,17 @@
 [gd_scene load_steps=8 format=3 uid="uid://b0ka3t3j4dwb1"]
 
 [ext_resource type="PackedScene" uid="uid://d1d5ot126tfxq" path="res://scenes/game_objects/bubble.tscn" id="2_8abf3"]
-[ext_resource type="PackedScene" uid="uid://chwvqg0ld6qj0" path="res://scenes/game_objects/sword.tscn" id="2_l5i0h"]
-[ext_resource type="PackedScene" uid="uid://btutgdslx4cfa" path="res://scenes/game_objects/limits.tscn" id="2_r4jfj"]
+[ext_resource type="PackedScene" path="res://scenes/game_objects/sword.tscn" id="2_l5i0h"]
+[ext_resource type="PackedScene" uid="uid://cm6fxhfpgoq7w" path="res://scenes/game_objects/limits.tscn" id="2_r4jfj"]
 [ext_resource type="Script" path="res://scripts/boosters.gd" id="3_fbx7w"]
 [ext_resource type="PackedScene" path="res://scenes/game_objects/bubbleBoost.tscn" id="3_t5qi0"]
+[ext_resource type="PackedScene" uid="uid://cndcrfwk8px4f" path="res://scenes/game_objects/bubbleBoost.tscn" id="3_t5qi0"]
+[ext_resource type="PackedScene" uid="uid://djh62bi77dfbs" path="res://Assets/3d_models/hand/hand.glb" id="6_7p6p1"]
+[ext_resource type="PackedScene" uid="uid://bppeardc5w1u8" path="res://Assets/3d_models/sword/sword.glb" id="7_tulmf"]
 
 [sub_resource type="Environment" id="Environment_vhovg"]
 background_color = Color(1, 1, 1, 1)
+background_energy_multiplier = 1.84
 background_canvas_max_layer = -1
 ambient_light_source = 2
 ambient_light_color = Color(1, 1, 1, 1)

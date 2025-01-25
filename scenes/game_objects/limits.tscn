@@ -7,7 +7,13 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_a0qh6"]
 size = Vector3(1, 21, 1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e86np"]
+transparency = 1
+metallic = 1.0
+roughness = 0.5
+
 [sub_resource type="BoxMesh" id="BoxMesh_vf5y7"]
+material = SubResource("StandardMaterial3D_e86np")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kcxrx"]
 size = Vector3(1, 21, 1)
