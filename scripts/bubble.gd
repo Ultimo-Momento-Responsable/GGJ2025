@@ -6,7 +6,7 @@ class_name Bubble
 @export var friction: float = 20
 @export var player: String = "1"
 @export var aoe_range: float = 2  # Rango extra desde los bordes
-@export var aoe_duration: float = 1.0  # Duración del AOE en segundos
+@export var aoe_duration: float = 0.2  # Duración del AOE en segundos
 @export var extra_size: float = 0.3
 var boosters: int = 0
 var aoe_active: bool = false  # Para evitar activar múltiples AOEs al mismo tiempo
