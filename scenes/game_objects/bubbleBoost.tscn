@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://d1d5ot126tfxq"]
+[gd_scene load_steps=7 format=3 uid="uid://cndcrfwk8px4f"]
 
-[ext_resource type="Script" path="res://scripts/bubble.gd" id="1_rucui"]
-[ext_resource type="Shader" path="res://scenes/game_objects/bubble.gdshader" id="2_noukl"]
+[ext_resource type="Script" path="res://scripts/bubble_boost.gd" id="1_culfq"]
+[ext_resource type="Shader" path="res://scenes/game_objects/bubble.gdshader" id="2_reda4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lj0sk"]
 diffuse_mode = 3
@@ -13,7 +13,7 @@ detail_blend_mode = 1
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vfyjj"]
 render_priority = 0
 next_pass = SubResource("StandardMaterial3D_lj0sk")
-shader = ExtResource("2_noukl")
+shader = ExtResource("2_reda4")
 shader_parameter/fuwafuwa_speed = 3.0
 shader_parameter/fuwafuwa_size = 0.1
 shader_parameter/outline_color = Color(0.550925, 0.783135, 0.864262, 1)
@@ -26,11 +26,10 @@ material = SubResource("ShaderMaterial_vfyjj")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_m5rrv"]
 
-[node name="Bubble" type="CharacterBody3D"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+[node name="BubbleBooster" type="CharacterBody3D" groups=["boosters"]]
 motion_mode = 1
-safe_margin = 0.5
-script = ExtResource("1_rucui")
+safe_margin = 0.1
+script = ExtResource("1_culfq")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_4bwjl")

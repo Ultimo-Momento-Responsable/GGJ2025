@@ -10,7 +10,7 @@ func _physics_process(delta: float) -> void:
 
 func _custom_physics(delta: float) -> void:
 	var input_direction = Vector2.ZERO
-
+	
 	input_direction = Input.get_vector("move_left_player" + player, "move_right_player" + player, "move_down_player" + player, "move_up_player" + player)
 	input_direction = input_direction.normalized()
 
@@ -25,3 +25,24 @@ func _custom_physics(delta: float) -> void:
 			velocity = Vector3.ZERO
 
 	move_and_slide()
+	# Si hay una colisión, ajusta la dirección
+	if get_slide_collision_count() > 0:
+		for i in range(get_slide_collision_count()):
+			var collision = get_slide_collision(i)
+			var collider = collision.get_collider()
+			if collider: 
+				if collider.is_in_group("hazards"):
+					_pop_bubble()
+				elif collider.is_in_group('boosters'):
+					collider.queue_free()
+					scale += Vector3(0.3, 0.3, 0.3)
+					if (max_speed > 8):
+						max_speed -= 2
+				else:
+					_bounce(collision.get_normal())
+			
+func _pop_bubble() -> void:
+	queue_free()
+
+func _bounce(normal: Vector3) -> void:
+	velocity = velocity.bounce(normal)
