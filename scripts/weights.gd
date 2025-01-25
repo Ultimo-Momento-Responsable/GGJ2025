@@ -2,7 +2,7 @@ extends Node3D
 
 # Carga la escena del objeto que quieres instanciar
 @export var booster: PackedScene
-@export var spawn_interval = 2  # Tiempo entre instancias en segundos
+@export var spawn_interval = 10  # Tiempo entre instancias en segundos
 
 var spawn_timer = 0.0
 

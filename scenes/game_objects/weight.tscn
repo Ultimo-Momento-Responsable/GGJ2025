@@ -6,7 +6,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_ycbij"]
 size = Vector3(1.36676, 1.83582, 1)
 
-[node name="RigidBody3D" type="RigidBody3D" groups=["hazards"]]
+[node name="Weight" type="RigidBody3D" groups=["hazards"]]
 mass = 10.0
 script = ExtResource("1_li8sa")
 
@@ -15,3 +15,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00912476, 1.01934, 0)
 shape = SubResource("BoxShape3D_ycbij")
 
 [node name="weight" parent="." instance=ExtResource("1_k2ioh")]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
