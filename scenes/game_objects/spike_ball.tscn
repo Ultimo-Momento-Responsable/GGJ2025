@@ -12,15 +12,18 @@ bounce = 1.0
 [node name="SpikeBall" type="RigidBody3D" groups=["hazards"]]
 collision_layer = 4
 collision_mask = 5
+axis_lock_linear_z = true
 mass = 0.001
 physics_material_override = SubResource("PhysicsMaterial_wgg1f")
 gravity_scale = 0.0
+angular_velocity = Vector3(1.16937, 0.785398, 0)
 script = ExtResource("1_fl4ry")
 
 [node name="block_ball" parent="." instance=ExtResource("2_bmj6n")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1.4, 0)
 shape = SubResource("SphereShape3D_padk4")
 
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
