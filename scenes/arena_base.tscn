@@ -1,11 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://b0ka3t3j4dwb1"]
+[gd_scene load_steps=10 format=3 uid="uid://b0ka3t3j4dwb1"]
 
 [ext_resource type="PackedScene" uid="uid://d1d5ot126tfxq" path="res://scenes/game_objects/bubble.tscn" id="2_8abf3"]
 [ext_resource type="PackedScene" uid="uid://dcu0rc4y25hrj" path="res://scenes/game_objects/sword.tscn" id="2_l5i0h"]
-[ext_resource type="PackedScene" uid="uid://cm6fxhfpgoq7w" path="res://scenes/game_objects/limits.tscn" id="2_r4jfj"]
+[ext_resource type="PackedScene" uid="uid://btutgdslx4cfa" path="res://scenes/game_objects/limits.tscn" id="2_r4jfj"]
 [ext_resource type="Script" path="res://scripts/boosters.gd" id="3_fbx7w"]
 [ext_resource type="PackedScene" uid="uid://cndcrfwk8px4f" path="res://scenes/game_objects/bubbleBoost.tscn" id="3_t5qi0"]
 [ext_resource type="Script" path="res://scripts/swords.gd" id="6_vqiep"]
+[ext_resource type="PackedScene" uid="uid://bwbrq0sroeebg" path="res://scenes/game_objects/cone.tscn" id="7_d5m40"]
 
 [sub_resource type="Environment" id="Environment_vhovg"]
 background_color = Color(1, 1, 1, 1)
@@ -59,3 +60,15 @@ player = "2"
 script = ExtResource("6_vqiep")
 booster = ExtResource("2_l5i0h")
 spawn_interval = 12
+
+[node name="ConeUL" parent="WorldEnvironment" instance=ExtResource("7_d5m40")]
+transform = Transform3D(-0.707107, 0.707107, 0, -0.707107, -0.707107, 0, 0, 0, 1, -15.9386, 7.79309, 0)
+
+[node name="ConeUR" parent="WorldEnvironment" instance=ExtResource("7_d5m40")]
+transform = Transform3D(-0.707107, -0.707107, 0, 0.707107, -0.707107, 0, 0, 0, 1, 15.865, 7.79309, 0)
+
+[node name="ConeDR" parent="WorldEnvironment" instance=ExtResource("7_d5m40")]
+transform = Transform3D(0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, 15.865, -7.89736, 0)
+
+[node name="ConeDL" parent="WorldEnvironment" instance=ExtResource("7_d5m40")]
+transform = Transform3D(0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0, 1, -15.9386, -7.96325, 0)
