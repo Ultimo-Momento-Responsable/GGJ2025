@@ -5,6 +5,15 @@ extends CharacterBody3D
 @export var friction: float = 20
 @export var player: String = "1"
 
+func _ready() -> void:
+	# Set color according to which type of bubble I am
+	var my_material = get_node("MeshInstance3D").get_mesh().get_material()
+	if name == "Player1":
+		my_material.set_shader_parameter("outline_color", Vector4( 0.192, 0.166, 0.69, 1.0 ))
+	if name == "Player2":
+		my_material.set_shader_parameter("outline_color", Vector4( 0.25, 1.0, 0.35, 1.0 ))
+	if name == "bubble_booster":
+		my_material.set_shader_parameter("outline_color", Vector4( 1.0, 1.0, 1.0, 1.0 ))
 func _physics_process(delta: float) -> void:
 	_custom_physics(delta)
 

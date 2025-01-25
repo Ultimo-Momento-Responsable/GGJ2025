@@ -4,24 +4,27 @@
 [ext_resource type="Shader" path="res://scenes/game_objects/bubble.gdshader" id="2_noukl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lj0sk"]
+blend_mode = 4
 diffuse_mode = 3
-albedo_color = Color(0.536745, 0.780457, 1, 1)
+albedo_color = Color(0.537, 0.78, 1, 0.805)
 refraction_scale = 1.0
 detail_enabled = true
 detail_blend_mode = 1
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vfyjj"]
+resource_local_to_scene = true
 render_priority = 0
 next_pass = SubResource("StandardMaterial3D_lj0sk")
 shader = ExtResource("2_noukl")
 shader_parameter/fuwafuwa_speed = 3.0
 shader_parameter/fuwafuwa_size = 0.1
-shader_parameter/outline_color = Color(0.550925, 0.783135, 0.864262, 1)
+shader_parameter/outline_color = Color(0.25, 1, 0.35, 1)
 shader_parameter/outline_ratio = 2.0
 shader_parameter/noise_speed = 1.0
 shader_parameter/noise_scale = 0.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_4bwjl"]
+resource_local_to_scene = true
 material = SubResource("ShaderMaterial_vfyjj")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_m5rrv"]
