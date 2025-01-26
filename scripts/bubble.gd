@@ -140,14 +140,13 @@ func _bounce(normal: Vector3) -> void:
 func _throw_power() -> void:
 	if aoe_active:
 		return  # No permitir múltiples AOEs al mismo tiempo
-	var size_to_remove = extra_size * boosters
-	scale -= Vector3(size_to_remove, size_to_remove, size_to_remove) 
+	var previous_scale = scale
 	aoe_active = true
 	
 	# Crear un Area3D para el AOE
 	var aoe = Area3D.new()
 	var shape = SphereShape3D.new()
-	var radius = (scale.x * 0.5) + aoe_range  # Tamaño de la burbuja más el rango extra
+	var radius = (previous_scale.x * 0.5) + aoe_range  # Tamaño de la burbuja más el rango extra
 	shape.radius = radius
 
 	var collision_shape = CollisionShape3D.new()
@@ -163,7 +162,7 @@ func _throw_power() -> void:
 	var tween = create_tween()
 	# Animar la escala para que se expanda
 	playSound(powerSound)
-	tween.tween_property(self, "scale", Vector3(scale.x + aoe_range, scale.y + aoe_range, scale.z + aoe_range), aoe_duration)
+	tween.tween_property(self, "scale", Vector3(scale.x + aoe_range * 2, scale.y + aoe_range * 2, scale.z + aoe_range * 2), aoe_duration)
 	await tween.finished
 	scale = initial_scale
 	max_speed = initial_max_speed
