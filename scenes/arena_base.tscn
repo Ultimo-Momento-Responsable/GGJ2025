@@ -8,9 +8,9 @@
 [ext_resource type="Script" path="res://scripts/hazzard_director.gd" id="6_r8epd"]
 [ext_resource type="Script" path="res://scripts/swords.gd" id="6_vqiep"]
 [ext_resource type="Script" path="res://scripts/weights.gd" id="7_46lpy"]
-[ext_resource type="PackedScene" uid="uid://bwbrq0sroeebg" path="res://scenes/game_objects/cone.tscn" id="7_d5m40"]
+[ext_resource type="PackedScene" uid="uid://dtn0237mvk8ca" path="res://scenes/game_objects/cone.tscn" id="7_d5m40"]
 [ext_resource type="Script" path="res://scripts/spikes.gd" id="7_gppu4"]
-[ext_resource type="PackedScene" uid="uid://dlq4cok71iv22" path="res://scenes/game_objects/weight.tscn" id="8_jmowg"]
+[ext_resource type="PackedScene" uid="uid://btvomiog3enx7" path="res://scenes/game_objects/weight.tscn" id="8_jmowg"]
 [ext_resource type="PackedScene" uid="uid://5ida03lnlclj" path="res://scenes/game_objects/spike_ball.tscn" id="9_7gl0k"]
 [ext_resource type="Script" path="res://scripts/cones.gd" id="12_pbg3b"]
 [ext_resource type="Script" path="res://scripts/scene_controller.gd" id="14_1pa53"]
@@ -61,12 +61,10 @@ booster = ExtResource("3_t5qi0")
 
 [node name="Player1" parent="WorldEnvironment" instance=ExtResource("2_8abf3")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -12, 0, 0)
-collision_mask = 5
 initial_position = Vector3(-12, 0, 0)
 
 [node name="Player2" parent="WorldEnvironment" instance=ExtResource("2_8abf3")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 12, 0, 0)
-collision_mask = 5
 max_speed = 25.0
 player = "2"
 initial_position = Vector3(12, 0, 0)
