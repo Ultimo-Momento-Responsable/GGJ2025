@@ -19,6 +19,7 @@ var aoe_active: bool = false  # Para evitar activar múltiples AOEs al mismo tie
 var dying_state: bool = false
 
 func _ready() -> void:
+	get_tree().get_root().get_node("/root/Control/SubViewportContainer/SubViewport/Player" + player + "Deaths").text = str(deaths)
 	# Set color according to which type of bubble I am
 	var my_material = get_node("MeshInstance3D").get_mesh().get_material()
 	if name == "Player1":
@@ -99,6 +100,7 @@ func _reset_values():
 	max_speed = initial_max_speed
 	dying_state = false
 	$MeshInstance3D.visible = true
+	get_tree().get_root().get_node("/root/Control/SubViewportContainer/SubViewport/Player" + player + "Deaths").text = str(deaths)
 
 func _bounce(normal: Vector3) -> void:
 	velocity = velocity.bounce(normal)
