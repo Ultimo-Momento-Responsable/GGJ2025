@@ -5,12 +5,15 @@ class_name Bubble
 @export var max_speed: float = 30
 @export var friction: float = 20
 @export var player: String = "1"
-@export var aoe_range: float = 2.5  # Rango extra desde los bordes
+@export var aoe_range: float = 1.5  # Rango extra desde los bordes
 @export var aoe_duration: float = 0.2  # Duración del AOE en segundos
 @export var extra_size: float = 0.5
 @export var power_force: float = 15
+@export var initial_position: Vector3
 
+var deaths = 0
 var initial_scale = scale
+var initial_max_speed = max_speed
 var boosters: int = 0
 var aoe_active: bool = false  # Para evitar activar múltiples AOEs al mismo tiempo
 var dying_state: bool = false
@@ -79,13 +82,23 @@ func _handle_bubble_collision(other_bubble: Bubble, collision_normal: Vector3) -
 	other_bubble.velocity += collision_normal * collision_speed
 
 func _pop_bubble() -> void:
+	velocity = Vector3.ZERO
 	if dying_state == false:
 		dying_state = true
-		remove_child($MeshInstance3D)
+		deaths += 1
+		$MeshInstance3D.visible = false
 		$GPUParticles3D.restart()
 		$GPUParticles3D2.restart()
 		await $GPUParticles3D.finished
-		queue_free()
+		_reset_values()
+
+func _reset_values():
+	position = initial_position
+	scale = initial_scale
+	boosters = 0
+	max_speed = initial_max_speed
+	dying_state = false
+	$MeshInstance3D.visible = true
 
 func _bounce(normal: Vector3) -> void:
 	velocity = velocity.bounce(normal)
@@ -118,6 +131,7 @@ func _throw_power() -> void:
 	tween.tween_property(self, "scale", Vector3(scale.x + aoe_range, scale.y + aoe_range, scale.z + aoe_range), aoe_duration)
 	await tween.finished
 	scale = initial_scale
+	max_speed = initial_max_speed
 
 	# el AOE después de aoe_duration
 	await get_tree().create_timer(aoe_duration).timeout
