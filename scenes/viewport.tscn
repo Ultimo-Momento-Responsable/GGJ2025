@@ -2,9 +2,9 @@
 
 [ext_resource type="Shader" path="res://control.gdshader" id="1_mm5tg"]
 [ext_resource type="PackedScene" uid="uid://b0ka3t3j4dwb1" path="res://scenes/arena_base.tscn" id="2_bxpo0"]
-[ext_resource type="FontFile" uid="uid://bmohw41hn702c" path="res://Assets/fonts/Bubble gum.otf" id="3_l8sii"]
+[ext_resource type="FontFile" uid="uid://bs4j1k2ly6mqn" path="res://Assets/fonts/Bubble gum.otf" id="3_l8sii"]
 [ext_resource type="Script" path="res://scripts/timer.gd" id="3_r1s8l"]
-[ext_resource type="PackedScene" uid="uid://dahwmw6taw8k4" path="res://Assets/3d_models/skull/skull.fbx" id="4_fyv8p"]
+[ext_resource type="PackedScene" uid="uid://doh2ck3qh6me1" path="res://Assets/3d_models/skull/skull.fbx" id="4_fyv8p"]
 [ext_resource type="Script" path="res://scripts/skull.gd" id="5_vw0fs"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uirju"]

@@ -6,16 +6,16 @@ var move_speed : float = 5.0 # Speed at which the cone moves
 var initial_rotation: float
 var is_initial_position_set: bool = false
 var rotation_axis: Vector3  = Vector3(0, 1, 0)
+var print_once = false
 
 var spawnSound = preload("res://Assets/sound/coneSpawn.ogg")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if is_moving:
+		print(name, " SPAWN")
 		$AudioStreamPlayer2D.stream = spawnSound
 		$AudioStreamPlayer2D.play()
-		position = Vector3(randf_range(-20, 20), 20, 0)
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -24,6 +24,9 @@ func _process(delta: float) -> void:
 	
 	# If the cone is moving, handle its movement towards the target
 	if is_moving:
+		if !print_once:
+			print(name, " IS MOVING FROM ", position ," TO ", target_position)
+			print_once = true
 		var direction = target_position - position
 		var velocity = direction.normalized() * move_speed
 		position += velocity * delta

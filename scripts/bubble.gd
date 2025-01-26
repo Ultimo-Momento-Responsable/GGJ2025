@@ -28,11 +28,16 @@ var respawnSound = preload("res://Assets/sound/respawn.ogg")
 var powerSound = preload("res://Assets/sound/bubblePower.ogg")
 var wallSound = preload("res://Assets/sound/wallbump.ogg")
 
+var bubble_collision_mask: int
+var bubble_collision_layer: int
+
 func playSound(sound):
 	$AudioStreamPlayer2D.stream = sound
 	$AudioStreamPlayer2D.play()
 
 func _ready() -> void:
+	bubble_collision_mask = collision_mask
+	bubble_collision_layer = collision_layer
 	# Set color according to which type of bubble I am
 	var my_material = get_node("MeshInstance3D").get_mesh().get_material()
 	if name == "Player1":
@@ -115,6 +120,8 @@ func _pop_bubble() -> void:
 		playSound(deathSound)
 		dying_state = true
 		deaths += 1
+		collision_layer = 0
+		collision_mask = 0
 		if get_tree().get_root().get_node("/root/Control/Scorebar/Player" + player + "Deaths"):
 			get_tree().get_root().get_node("/root/Control/Scorebar/Player" + player + "Deaths").text = str(deaths)
 		$MeshInstance3D.visible = false
@@ -128,6 +135,8 @@ func _reset_values():
 	i_time = initial_i_time
 	position = initial_position
 	scale = initial_scale
+	collision_layer = bubble_collision_layer
+	collision_mask = bubble_collision_mask
 	boosters = 0
 	max_speed = initial_max_speed
 	dying_state = false

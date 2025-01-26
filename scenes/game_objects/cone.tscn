@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bwbrq0sroeebg"]
+[gd_scene load_steps=4 format=3 uid="uid://dtn0237mvk8ca"]
 
 [ext_resource type="Script" path="res://scripts/cone.gd" id="1_k1cw6"]
-[ext_resource type="PackedScene" uid="uid://ckcvvatkjnupi" path="res://Assets/3d_models/cone/no_metallic/cone.glb" id="1_ngack"]
+[ext_resource type="PackedScene" uid="uid://ccn1dyye01d3j" path="res://Assets/3d_models/cone/no_metallic/cone.glb" id="1_ngack"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_yeu5g"]
 
