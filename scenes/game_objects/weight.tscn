@@ -48,7 +48,8 @@ color = Color(0.889529, 0.947661, 1, 1)
 [sub_resource type="QuadMesh" id="QuadMesh_nkkbe"]
 
 [node name="Weight" type="RigidBody3D" groups=["hazards"]]
-collision_mask = 3
+collision_layer = 4
+collision_mask = 2
 axis_lock_linear_x = true
 axis_lock_linear_z = true
 axis_lock_angular_x = true
