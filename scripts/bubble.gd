@@ -175,13 +175,10 @@ func _throw_power() -> void:
 func _on_aoe_body_entered(body: Node) -> void:
 	# Asegurarnos de que estamos afectando solo a las otras burbujas y no a sí mismo
 	if body is Bubble and body != self:
-		print("AOE hit bubble: ", body.name, " - ", self.name)
 		apply_aoe_effect(body)  # Ahora pasamos el 'body', no 'self'
 
 func apply_aoe_effect(target_bubble: Bubble) -> void:
-	# Lógica para aplicar el efecto del AOE
-	print("Applying AOE effect to: ", target_bubble.name, " from ", self.name)
-	
+	# Lógica para aplicar el efecto del AOE	
 	var direction = (target_bubble.global_transform.origin - global_transform.origin).normalized()  # Direccion opuesta a 'self'
 
 	# La fuerza que se aplicará al personaje afectado
