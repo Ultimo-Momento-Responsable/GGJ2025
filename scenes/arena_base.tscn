@@ -98,22 +98,18 @@ hand = ExtResource("17_an8oe")
 
 [node name="ConeUL" parent="WorldEnvironment/Hazzards/Static Cones" instance=ExtResource("7_d5m40")]
 transform = Transform3D(-0.707107, 0.707107, 0, -0.707107, -0.707107, 0, 0, 0, 1, -15.9386, 7.79309, 0)
-collision_mask = 21
 is_moving = false
 
 [node name="ConeUR" parent="WorldEnvironment/Hazzards/Static Cones" instance=ExtResource("7_d5m40")]
 transform = Transform3D(-0.707107, -0.707107, 0, 0.707107, -0.707107, 0, 0, 0, 1, 15.865, 7.79309, 0)
-collision_mask = 21
 is_moving = false
 
 [node name="ConeDR" parent="WorldEnvironment/Hazzards/Static Cones" instance=ExtResource("7_d5m40")]
 transform = Transform3D(0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, 15.865, -7.89736, 0)
-collision_mask = 21
 is_moving = false
 
 [node name="ConeDL" parent="WorldEnvironment/Hazzards/Static Cones" instance=ExtResource("7_d5m40")]
 transform = Transform3D(0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0, 1, -15.9386, -7.96325, 0)
-collision_mask = 21
 is_moving = false
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

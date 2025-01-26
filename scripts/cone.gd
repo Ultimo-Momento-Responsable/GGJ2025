@@ -13,7 +13,6 @@ var spawnSound = preload("res://Assets/sound/coneSpawn.ogg")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if is_moving:
-		print(name, " SPAWN")
 		$AudioStreamPlayer2D.stream = spawnSound
 		$AudioStreamPlayer2D.play()
 
@@ -25,7 +24,6 @@ func _process(delta: float) -> void:
 	# If the cone is moving, handle its movement towards the target
 	if is_moving:
 		if !print_once:
-			print(name, " IS MOVING FROM ", position ," TO ", target_position)
 			print_once = true
 		var direction = target_position - position
 		var velocity = direction.normalized() * move_speed
