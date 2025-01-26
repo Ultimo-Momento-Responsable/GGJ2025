@@ -1,9 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bxkq51wj88e0s"]
+[gd_scene load_steps=5 format=3 uid="uid://bn5yfviucprke"]
 
-[ext_resource type="Texture2D" uid="uid://c8166l5lfv2fn" path="res://Assets/images/onboarding.png" id="1_dkhkj"]
+[ext_resource type="Texture2D" uid="uid://b62hf8bf0rjhr" path="res://Assets/images/onboarding.png" id="1_dkhkj"]
 [ext_resource type="PackedScene" uid="uid://c0grj3cr75qod" path="res://scenes/viewport.tscn" id="2_87hd6"]
 [ext_resource type="Script" path="res://scripts/intro.gd" id="2_fexsy"]
-[ext_resource type="AudioStream" uid="uid://q1ngodpntrch" path="res://Assets/music/score_music_ggj2025.ogg" id="4_tonm7"]
+[ext_resource type="AudioStream" uid="uid://cb48xk2bmcrjs" path="res://Assets/music/score_music_ggj2025.ogg" id="4_tonm7"]
 
 [node name="Intro" type="Control"]
 layout_mode = 3
@@ -29,6 +29,7 @@ texture = ExtResource("1_dkhkj")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_tonm7")
+volume_db = -20.613
 autoplay = true
 parameters/looping = true
 
