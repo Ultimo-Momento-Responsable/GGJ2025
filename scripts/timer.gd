@@ -1,10 +1,10 @@
 extends Label
 
-var elapsed_time = 0
+var elapsed_time = 90
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	elapsed_time += delta
+	elapsed_time -= delta
 	
 	if elapsed_time < 10:
 		text = "0:0" + str(floor(elapsed_time))

@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://c0grj3cr75qod"]
+[gd_scene load_steps=9 format=3 uid="uid://c0grj3cr75qod"]
 
 [ext_resource type="Shader" path="res://control.gdshader" id="1_mm5tg"]
 [ext_resource type="PackedScene" uid="uid://b0ka3t3j4dwb1" path="res://scenes/arena_base.tscn" id="2_bxpo0"]
+[ext_resource type="FontFile" uid="uid://dpn818214h44s" path="res://Assets/fonts/Bubble gum.otf" id="3_l8sii"]
 [ext_resource type="Script" path="res://scripts/timer.gd" id="3_r1s8l"]
 [ext_resource type="PackedScene" uid="uid://77byt22648ao" path="res://Assets/3d_models/skull/skull.fbx" id="4_fyv8p"]
 [ext_resource type="Script" path="res://scripts/skull.gd" id="5_vw0fs"]
@@ -71,20 +72,23 @@ render_target_update_mode = 4
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_left = 154.0
-offset_right = -155.0
-offset_bottom = 67.0
+offset_left = 142.0
+offset_top = -2.0
+offset_right = -143.0
+offset_bottom = 65.0
 grow_horizontal = 2
 
 [node name="Player1Deaths" type="Label" parent="Scorebar"]
 layout_mode = 2
 size_flags_horizontal = 2
+theme_override_fonts/font = ExtResource("3_l8sii")
 theme_override_font_sizes/font_size = 32
 text = "0 "
 
 [node name="Timer" type="Label" parent="Scorebar"]
 layout_mode = 2
 size_flags_horizontal = 6
+theme_override_fonts/font = ExtResource("3_l8sii")
 theme_override_font_sizes/font_size = 48
 text = "0:00"
 script = ExtResource("3_r1s8l")
@@ -92,6 +96,7 @@ script = ExtResource("3_r1s8l")
 [node name="Player2Deaths" type="Label" parent="Scorebar"]
 layout_mode = 2
 size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("3_l8sii")
 theme_override_font_sizes/font_size = 32
 text = "0"
 

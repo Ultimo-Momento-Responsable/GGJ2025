@@ -16,8 +16,6 @@
 [ext_resource type="Script" path="res://scripts/scene_controller.gd" id="14_1pa53"]
 [ext_resource type="AudioStream" uid="uid://o1kxoaccli7r" path="res://Assets/music/background_music_ggj2025.ogg" id="15_j4nwh"]
 [ext_resource type="PackedScene" uid="uid://codrsxqjrbdue" path="res://scenes/score.tscn" id="16_rvqlq"]
-[ext_resource type="AudioStream" uid="uid://3d23a51twa2j" path="res://Assets/music/background_music_ggj2025.ogg" id="15_j4nwh"]
-[ext_resource type="PackedScene" path="res://scenes/score.tscn" id="16_rvqlq"]
 
 [sub_resource type="Environment" id="Environment_vhovg"]
 background_color = Color(1, 1, 1, 1)
@@ -60,16 +58,16 @@ script = ExtResource("3_fbx7w")
 booster = ExtResource("3_t5qi0")
 
 [node name="Player1" parent="WorldEnvironment" instance=ExtResource("2_8abf3")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -12, 0, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -10, 0, 0)
 collision_mask = 5
-initial_position = Vector3(-12, 0, 0)
+initial_position = Vector3(-10, 0, 0)
 
 [node name="Player2" parent="WorldEnvironment" instance=ExtResource("2_8abf3")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 12, 0, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 10, 0, 0)
 collision_mask = 5
 max_speed = 25.0
 player = "2"
-initial_position = Vector3(12, 0, 0)
+initial_position = Vector3(10, 0, 0)
 
 [node name="Hazzards" type="Node" parent="WorldEnvironment"]
 
