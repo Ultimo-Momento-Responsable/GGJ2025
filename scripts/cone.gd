@@ -7,9 +7,13 @@ var initial_rotation: float
 var is_initial_position_set: bool = false
 var rotation_axis: Vector3  = Vector3(0, 1, 0)
 
+var spawnSound = preload("res://Assets/sound/coneSpawn.ogg")
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if is_moving:
+		$AudioStreamPlayer2D.stream = spawnSound
+		$AudioStreamPlayer2D.play()
 		position = Vector3(randf_range(-20, 20), 20, 0)
 
 

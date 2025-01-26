@@ -15,8 +15,16 @@ var starting_positions := [
 var target_position: Vector3
 var move_speed: float = 20
 
+var spawnSound = preload("res://Assets/sound/handSpawn.ogg")
+var moveSound = preload("res://Assets/sound/handMove.ogg")
+
+func playSound(sound):
+	$AudioStreamPlayer2D.stream = sound
+	$AudioStreamPlayer2D.play()
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	playSound(spawnSound)
 	collision_layer = 0
 	collision_mask = 0
 	match start:
@@ -57,6 +65,7 @@ func _process(delta: float) -> void:
 				state += 1
 		2:
 			#set new target position
+			playSound(moveSound)
 			target_position = starting_positions[start] + direction * 38
 			state += 1
 		3:
