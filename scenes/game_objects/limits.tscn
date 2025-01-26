@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://btutgdslx4cfa"]
 
-[ext_resource type="PackedScene" uid="uid://bxhoifrky3xhc" path="res://Assets/3d_models/boundary/boundaryGlass.glb" id="1_rxvlb"]
+[ext_resource type="PackedScene" uid="uid://da7bjvpvdxtn7" path="res://Assets/3d_models/boundary/boundaryGlass.glb" id="1_rxvlb"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1dxn7"]
 

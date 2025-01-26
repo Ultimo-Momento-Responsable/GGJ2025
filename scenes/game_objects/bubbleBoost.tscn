@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cndcrfwk8px4f"]
+[gd_scene load_steps=7 format=3 uid="uid://cbbfpmap5ulof"]
 
 [ext_resource type="Script" path="res://scripts/bubble_boost.gd" id="1_culfq"]
 [ext_resource type="Shader" path="res://scenes/game_objects/bubble.gdshader" id="2_reda4"]

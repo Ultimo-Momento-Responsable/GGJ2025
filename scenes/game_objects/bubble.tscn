@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/bubble.gd" id="1_rucui"]
 [ext_resource type="Shader" path="res://scenes/game_objects/bubble.gdshader" id="2_noukl"]
-[ext_resource type="Texture2D" uid="uid://15dqp2kh8ig6" path="res://Assets/textures/Flare00.PNG" id="3_mm3sh"]
+[ext_resource type="Texture2D" uid="uid://bgs0he5i8scmh" path="res://Assets/textures/Flare00.PNG" id="3_mm3sh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lj0sk"]
 transparency = 1

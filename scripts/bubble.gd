@@ -22,7 +22,7 @@ var aoe_active: bool = false  # Para evitar activar múltiples AOEs al mismo tie
 var dying_state: bool = false
 
 func _ready() -> void:
-	get_tree().get_root().get_node("/root/Control/SubViewportContainer/SubViewport/Player" + player + "Deaths").text = str(deaths)
+	get_tree().get_root().get_node("/root/Control/Scorebar/Player" + player + "Deaths").text = "Player " + str(player) + " deaths: " + str(deaths)
 	# Set color according to which type of bubble I am
 	var my_material = get_node("MeshInstance3D").get_mesh().get_material()
 	if name == "Player1":
@@ -101,6 +101,7 @@ func _pop_bubble() -> void:
 	if dying_state == false:
 		dying_state = true
 		deaths += 1
+		get_tree().get_root().get_node("/root/Control/Scorebar/Player" + player + "Deaths").text = "Player " + str(player) + " deaths: " + str(deaths)
 		$MeshInstance3D.visible = false
 		$GPUParticles3D.restart()
 		$GPUParticles3D2.restart()
@@ -116,7 +117,6 @@ func _reset_values():
 	max_speed = initial_max_speed
 	dying_state = false
 	$MeshInstance3D.visible = true
-	get_tree().get_root().get_node("/root/Control/SubViewportContainer/SubViewport/Player" + player + "Deaths").text = str(deaths)
 
 func _bounce(normal: Vector3) -> void:
 	velocity = velocity.bounce(normal)
