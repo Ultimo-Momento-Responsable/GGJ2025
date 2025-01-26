@@ -109,9 +109,11 @@ color = Color(0.889529, 0.947661, 1, 1)
 
 [node name="Bubble" type="CharacterBody3D" groups=["bubbles"]]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
-collision_mask = 15
+collision_mask = 31
 axis_lock_linear_z = true
 motion_mode = 1
+platform_floor_layers = 4294901760
+platform_wall_layers = 2
 safe_margin = 0.5
 script = ExtResource("1_rucui")
 

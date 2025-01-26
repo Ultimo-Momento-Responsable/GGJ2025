@@ -32,7 +32,7 @@ func _physics_process(delta):
 			
 			if collider and collider.is_in_group("hazards"):
 				queue_free()
-			else:
+			elif collider and collider.is_in_group("boundaries"):
 				var normal = collision.get_normal()  # Obtén la normal de la colisión
 				velocity = velocity.bounce(normal)
 				direction = normal

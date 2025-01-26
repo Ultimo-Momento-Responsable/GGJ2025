@@ -40,7 +40,8 @@ material = SubResource("ShaderMaterial_vfyjj")
 [sub_resource type="SphereShape3D" id="SphereShape3D_m5rrv"]
 
 [node name="BubbleBooster" type="CharacterBody3D" groups=["boosters"]]
-collision_mask = 3
+collision_layer = 16
+collision_mask = 19
 axis_lock_linear_z = true
 motion_mode = 1
 safe_margin = 0.1

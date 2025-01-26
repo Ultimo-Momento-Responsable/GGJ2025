@@ -8,7 +8,8 @@ size = Vector3(1, 8.91553, 4.33813)
 
 [node name="Hand" type="RigidBody3D"]
 collision_layer = 8
-collision_mask = 9
+collision_mask = 25
+axis_lock_linear_y = true
 axis_lock_linear_z = true
 axis_lock_angular_x = true
 axis_lock_angular_y = true
@@ -25,3 +26,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.95776, 0)
 shape = SubResource("BoxShape3D_p6cua")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

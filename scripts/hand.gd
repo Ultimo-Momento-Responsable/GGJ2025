@@ -95,3 +95,7 @@ func _move_towards_target_position(delta: float) -> bool:
 		return true
 	
 	return false
+
+func _on_body_entered(body: Node) -> void:
+	if body.is_in_group("bubbles"):
+		body.velocity += direction * 0.5
