@@ -1,8 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dkilwsks8yfab"]
+[gd_scene load_steps=7 format=3 uid="uid://1qdhkjvooju6"]
 
 [ext_resource type="Script" path="res://scenes/load_shaders.gd" id="1_da4n0"]
 [ext_resource type="Shader" path="res://control.gdshader" id="1_fdirm"]
-[ext_resource type="FontFile" uid="uid://j3vnv5d2x0q8" path="res://Assets/fonts/Bubble gum.otf" id="2_60ybf"]
+[ext_resource type="FontFile" uid="uid://bmohw41hn702c" path="res://Assets/fonts/Bubble gum.otf" id="2_60ybf"]
 [ext_resource type="PackedScene" uid="uid://bxkq51wj88e0s" path="res://scenes/intro.tscn" id="2_kfne2"]
 [ext_resource type="Script" path="res://scenes/animated_font.gd" id="3_g88en"]
 
@@ -27,6 +27,7 @@ shader_parameter/pixel_filter = 4096.0
 metadata/_edit_vertical_guides_ = [-70.0]
 
 [node name="Control" type="Control" parent="."]
+visibility_layer = 2
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

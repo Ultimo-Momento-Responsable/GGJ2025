@@ -115,7 +115,8 @@ func _pop_bubble() -> void:
 		playSound(deathSound)
 		dying_state = true
 		deaths += 1
-		get_tree().get_root().get_node("/root/Control/Scorebar/Player" + player + "Deaths").text = str(deaths)
+		if get_tree().get_root().get_node("/root/Control/Scorebar/Player" + player + "Deaths"):
+			get_tree().get_root().get_node("/root/Control/Scorebar/Player" + player + "Deaths").text = str(deaths)
 		$MeshInstance3D.visible = false
 		$GPUParticles3D.restart()
 		$GPUParticles3D2.restart()
