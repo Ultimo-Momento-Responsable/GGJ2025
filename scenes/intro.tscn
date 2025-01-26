@@ -30,5 +30,6 @@ texture = ExtResource("1_dkhkj")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_tonm7")
 autoplay = true
+parameters/looping = true
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
