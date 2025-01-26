@@ -8,16 +8,16 @@
 [ext_resource type="Script" path="res://scripts/hazzard_director.gd" id="6_r8epd"]
 [ext_resource type="Script" path="res://scripts/swords.gd" id="6_vqiep"]
 [ext_resource type="Script" path="res://scripts/weights.gd" id="7_46lpy"]
-[ext_resource type="PackedScene" uid="uid://bwbrq0sroeebg" path="res://scenes/game_objects/cone.tscn" id="7_d5m40"]
+[ext_resource type="PackedScene" uid="uid://dtn0237mvk8ca" path="res://scenes/game_objects/cone.tscn" id="7_d5m40"]
 [ext_resource type="Script" path="res://scripts/spikes.gd" id="7_gppu4"]
-[ext_resource type="PackedScene" uid="uid://dlq4cok71iv22" path="res://scenes/game_objects/weight.tscn" id="8_jmowg"]
+[ext_resource type="PackedScene" uid="uid://btvomiog3enx7" path="res://scenes/game_objects/weight.tscn" id="8_jmowg"]
 [ext_resource type="PackedScene" uid="uid://5ida03lnlclj" path="res://scenes/game_objects/spike_ball.tscn" id="9_7gl0k"]
 [ext_resource type="Script" path="res://scripts/cones.gd" id="12_pbg3b"]
 [ext_resource type="Script" path="res://scripts/scene_controller.gd" id="14_1pa53"]
 [ext_resource type="Script" path="res://scripts/hands.gd" id="14_a61sw"]
-[ext_resource type="AudioStream" uid="uid://o1kxoaccli7r" path="res://Assets/music/background_music_ggj2025.ogg" id="15_j4nwh"]
-[ext_resource type="PackedScene" uid="uid://codrsxqjrbdue" path="res://scenes/score.tscn" id="16_rvqlq"]
-[ext_resource type="PackedScene" path="res://scenes/game_objects/hand.tscn" id="17_an8oe"]
+[ext_resource type="AudioStream" uid="uid://co4whtsg0vgq8" path="res://Assets/music/background_music_ggj2025.ogg" id="15_j4nwh"]
+[ext_resource type="PackedScene" path="res://scenes/score.tscn" id="16_rvqlq"]
+[ext_resource type="PackedScene" uid="uid://bd1kkp7epds7b" path="res://scenes/game_objects/hand.tscn" id="17_an8oe"]
 
 [sub_resource type="Environment" id="Environment_vhovg"]
 background_color = Color(1, 1, 1, 1)
@@ -98,25 +98,21 @@ hand = ExtResource("17_an8oe")
 
 [node name="ConeUL" parent="WorldEnvironment/Hazzards/Static Cones" instance=ExtResource("7_d5m40")]
 transform = Transform3D(-0.707107, 0.707107, 0, -0.707107, -0.707107, 0, 0, 0, 1, -15.9386, 7.79309, 0)
-collision_layer = 4
 collision_mask = 21
 is_moving = false
 
 [node name="ConeUR" parent="WorldEnvironment/Hazzards/Static Cones" instance=ExtResource("7_d5m40")]
 transform = Transform3D(-0.707107, -0.707107, 0, 0.707107, -0.707107, 0, 0, 0, 1, 15.865, 7.79309, 0)
-collision_layer = 4
 collision_mask = 21
 is_moving = false
 
 [node name="ConeDR" parent="WorldEnvironment/Hazzards/Static Cones" instance=ExtResource("7_d5m40")]
 transform = Transform3D(0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, 15.865, -7.89736, 0)
-collision_layer = 4
 collision_mask = 21
 is_moving = false
 
 [node name="ConeDL" parent="WorldEnvironment/Hazzards/Static Cones" instance=ExtResource("7_d5m40")]
 transform = Transform3D(0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0, 1, -15.9386, -7.96325, 0)
-collision_layer = 4
 collision_mask = 21
 is_moving = false
 

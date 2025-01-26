@@ -6,6 +6,8 @@
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_yeu5g"]
 
 [node name="Cone" type="RigidBody3D" groups=["hazards"]]
+collision_layer = 4
+collision_mask = 21
 gravity_scale = 0.0
 script = ExtResource("1_k1cw6")
 
