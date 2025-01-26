@@ -1,8 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://dlq4cok71iv22"]
+[gd_scene load_steps=12 format=3 uid="uid://btvomiog3enx7"]
 
-[ext_resource type="PackedScene" uid="uid://bc012dmlvsw10" path="res://Assets/3d_models/weight/weight.glb" id="1_k2ioh"]
+[ext_resource type="PackedScene" uid="uid://dsm5wowbd560t" path="res://Assets/3d_models/weight/weight.glb" id="1_k2ioh"]
 [ext_resource type="Script" path="res://scripts/weight.gd" id="1_li8sa"]
-[ext_resource type="Texture2D" uid="uid://15dqp2kh8ig6" path="res://Assets/textures/Flare00.PNG" id="3_gskl4"]
+[ext_resource type="Texture2D" uid="uid://bgs0he5i8scmh" path="res://Assets/textures/Flare00.PNG" id="3_gskl4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ycbij"]
 size = Vector3(1.36676, 1.83582, 1)
@@ -48,6 +48,13 @@ color = Color(0.889529, 0.947661, 1, 1)
 [sub_resource type="QuadMesh" id="QuadMesh_nkkbe"]
 
 [node name="Weight" type="RigidBody3D" groups=["hazards"]]
+collision_layer = 4
+collision_mask = 2
+axis_lock_linear_x = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
 mass = 10.0
 script = ExtResource("1_li8sa")
 

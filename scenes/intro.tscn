@@ -1,9 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bxkq51wj88e0s"]
+[gd_scene load_steps=5 format=3 uid="uid://d28tx2kberdtx"]
 
-[ext_resource type="Texture2D" uid="uid://c8166l5lfv2fn" path="res://Assets/images/onboarding.png" id="1_dkhkj"]
+[ext_resource type="Texture2D" uid="uid://cqwa1d6doifxh" path="res://Assets/images/onboarding.png" id="1_dkhkj"]
 [ext_resource type="PackedScene" uid="uid://c0grj3cr75qod" path="res://scenes/viewport.tscn" id="2_87hd6"]
 [ext_resource type="Script" path="res://scripts/intro.gd" id="2_fexsy"]
-[ext_resource type="AudioStream" uid="uid://q1ngodpntrch" path="res://Assets/music/score_music_ggj2025.ogg" id="4_tonm7"]
+[ext_resource type="AudioStream" uid="uid://p25dfjjvqucg" path="res://Assets/music/score_music_ggj2025.ogg" id="4_tonm7"]
 
 [node name="Intro" type="Control"]
 layout_mode = 3
@@ -15,6 +15,15 @@ grow_vertical = 2
 script = ExtResource("2_fexsy")
 scene_to_change = ExtResource("2_87hd6")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0470588, 0.0470588, 0.0470588, 1)
+
 [node name="BoxContainer" type="BoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -25,10 +34,14 @@ grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="BoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 6
 texture = ExtResource("1_dkhkj")
+expand_mode = 3
+stretch_mode = 4
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_tonm7")
+volume_db = -20.613
 autoplay = true
 parameters/looping = true
 
