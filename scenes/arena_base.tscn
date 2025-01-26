@@ -16,6 +16,8 @@
 [ext_resource type="Script" path="res://scripts/scene_controller.gd" id="14_1pa53"]
 [ext_resource type="AudioStream" uid="uid://o1kxoaccli7r" path="res://Assets/music/background_music_ggj2025.ogg" id="15_j4nwh"]
 [ext_resource type="PackedScene" uid="uid://codrsxqjrbdue" path="res://scenes/score.tscn" id="16_rvqlq"]
+[ext_resource type="AudioStream" uid="uid://3d23a51twa2j" path="res://Assets/music/background_music_ggj2025.ogg" id="15_j4nwh"]
+[ext_resource type="PackedScene" path="res://scenes/score.tscn" id="16_rvqlq"]
 
 [sub_resource type="Environment" id="Environment_vhovg"]
 background_color = Color(1, 1, 1, 1)
@@ -110,5 +112,6 @@ is_moving = false
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_j4nwh")
+volume_db = -20.0
 script = ExtResource("14_1pa53")
 score_scene = ExtResource("16_rvqlq")

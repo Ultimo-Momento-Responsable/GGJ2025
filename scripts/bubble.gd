@@ -21,7 +21,19 @@ var boosters: int = 0
 var aoe_active: bool = false  # Para evitar activar múltiples AOEs al mismo tiempo
 var dying_state: bool = false
 
+var deathSound = preload("res://Assets/sound/death.ogg")
+var bumpSound = preload("res://Assets/sound/bump.ogg")
+var boosterSound = preload("res://Assets/sound/getBooster.ogg")
+var respawnSound = preload("res://Assets/sound/respawn.ogg")
+var powerSound = preload("res://Assets/sound/bubblePower.ogg")
+var wallSound = preload("res://Assets/sound/wallbump.ogg")
+
+func playSound(sound):
+	$AudioStreamPlayer2D.stream = sound
+	$AudioStreamPlayer2D.play()
+
 func _ready() -> void:
+	# get_tree().get_root().get_node("/root/Control/SubViewportContainer/SubViewport/Player" + player + "Deaths").text = str(deaths)
 	get_tree().get_root().get_node("/root/Control/Scorebar/Player" + player + "Deaths").text = "Player " + str(player) + " deaths: " + str(deaths)
 	# Set color according to which type of bubble I am
 	var my_material = get_node("MeshInstance3D").get_mesh().get_material()
@@ -76,8 +88,10 @@ func _custom_physics(delta: float) -> void:
 			elif collider and collider is Bubble:
 				_handle_bubble_collision(collider as Bubble, collision_normal)
 			elif collider and collider.is_in_group("boundaries"):
+				playSound(wallSound)
 				_bounce(collision_normal)
 			elif collider and collider.is_in_group("boosters"):
+				playSound(boosterSound)
 				collider.queue_free()
 				boosters += 1
 				scale += Vector3(extra_size, extra_size, extra_size)
@@ -86,6 +100,7 @@ func _custom_physics(delta: float) -> void:
 
 func _handle_bubble_collision(other_bubble: Bubble, collision_normal: Vector3) -> void:
 	# Simular física de bolas de billar
+	playSound(bumpSound)
 	var relative_velocity = velocity - other_bubble.velocity
 	var collision_speed = relative_velocity.dot(collision_normal)
 
@@ -99,6 +114,7 @@ func _handle_bubble_collision(other_bubble: Bubble, collision_normal: Vector3) -
 func _pop_bubble() -> void:
 	velocity = Vector3.ZERO
 	if dying_state == false:
+		playSound(deathSound)
 		dying_state = true
 		deaths += 1
 		get_tree().get_root().get_node("/root/Control/Scorebar/Player" + player + "Deaths").text = "Player " + str(player) + " deaths: " + str(deaths)
@@ -116,6 +132,8 @@ func _reset_values():
 	boosters = 0
 	max_speed = initial_max_speed
 	dying_state = false
+	playSound(respawnSound)
+	$GPUParticles3D.restart()
 	$MeshInstance3D.visible = true
 
 func _bounce(normal: Vector3) -> void:
@@ -146,6 +164,7 @@ func _throw_power() -> void:
 	# Crear y configurar el Tween
 	var tween = create_tween()
 	# Animar la escala para que se expanda
+	playSound(powerSound)
 	tween.tween_property(self, "scale", Vector3(scale.x + aoe_range, scale.y + aoe_range, scale.z + aoe_range), aoe_duration)
 	await tween.finished
 	scale = initial_scale

@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://d1d5ot126tfxq"]
+[gd_scene load_steps=19 format=3 uid="uid://d1d5ot126tfxq"]
 
 [ext_resource type="Script" path="res://scripts/bubble.gd" id="1_rucui"]
 [ext_resource type="Shader" path="res://scenes/game_objects/bubble.gdshader" id="2_noukl"]
-[ext_resource type="Texture2D" uid="uid://bgs0he5i8scmh" path="res://Assets/textures/Flare00.PNG" id="3_mm3sh"]
+[ext_resource type="Texture2D" uid="uid://15dqp2kh8ig6" path="res://Assets/textures/Flare00.PNG" id="3_mm3sh"]
+[ext_resource type="AudioStream" uid="uid://de0sy3t0mc01n" path="res://Assets/sound/death.ogg" id="4_4x4ci"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lj0sk"]
 transparency = 1
@@ -124,6 +125,7 @@ shape = SubResource("SphereShape3D_m5rrv")
 emitting = false
 one_shot = true
 explosiveness = 0.63
+fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_jakoy")
 draw_pass_1 = SubResource("SphereMesh_hmq1m")
 
@@ -138,3 +140,6 @@ fixed_fps = 60
 trail_enabled = true
 process_material = SubResource("ParticleProcessMaterial_jw0l1")
 draw_pass_1 = SubResource("QuadMesh_tikmi")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_4x4ci")

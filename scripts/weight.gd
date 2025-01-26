@@ -1,5 +1,7 @@
 extends RigidBody3D
 
+var thudSound = preload("res://Assets/sound/weightThud.ogg")
+var spawnSound = preload("res://Assets/sound/weightSpawn.ogg")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	set_contact_monitor(true)
@@ -8,6 +10,8 @@ func _ready() -> void:
 	scale = Vector3(0.0, 0.0, 0.0)
 	var tween = create_tween()
 	tween.tween_property(self, "scale", Vector3(1.0, 1.0 ,1.0), 0.5)
+	$AudioStreamPlayer2D.stream = spawnSound
+	$AudioStreamPlayer2D.play()
 	await tween.finished
 	$CollisionShape3D.disabled = false
 	apply_impulse(Vector3(0, -600, 0))
@@ -18,6 +22,8 @@ func _process(delta):
 
 func _on_body_entered(body):
 	if body is StaticBody3D:
+		$AudioStreamPlayer2D.stream = thudSound
+		$AudioStreamPlayer2D.play()
 		$GPUParticles3D2.restart()
 		$CollisionShape3D.set_deferred("disabled", true)
 		var tween = create_tween()

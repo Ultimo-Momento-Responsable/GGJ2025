@@ -4,8 +4,12 @@ var acceleration = 5.0              # Aceleración fija
 var max_speed = 10.0                # Velocidad máxima
 var direction = Vector3.ZERO        # Dirección inicial aleatoria
 
+var spawnSound = preload("res://Assets/sound/boosterSpawn.ogg")
+
 func _ready():
 	# Generar una dirección aleatoria al inicio
+	$AudioStreamPlayer2D.stream = spawnSound
+	$AudioStreamPlayer2D.play()
 	scale = Vector3(0.0, 0.0, 0.0)
 	direction = Vector3(randf_range(-1, 1), randf_range(-1, 1), 0).normalized()
 	var tween = create_tween()
