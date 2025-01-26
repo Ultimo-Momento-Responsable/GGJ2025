@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://c0grj3cr75qod"]
+[gd_scene load_steps=8 format=3 uid="uid://c0grj3cr75qod"]
 
 [ext_resource type="Shader" path="res://control.gdshader" id="1_mm5tg"]
 [ext_resource type="PackedScene" uid="uid://b0ka3t3j4dwb1" path="res://scenes/arena_base.tscn" id="2_bxpo0"]
 [ext_resource type="Script" path="res://scripts/timer.gd" id="3_r1s8l"]
+[ext_resource type="PackedScene" uid="uid://77byt22648ao" path="res://Assets/3d_models/skull/skull.fbx" id="4_fyv8p"]
+[ext_resource type="Script" path="res://scripts/skull.gd" id="5_vw0fs"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uirju"]
 shader = ExtResource("1_mm5tg")
@@ -69,17 +71,16 @@ render_target_update_mode = 4
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_left = 83.0
-offset_top = 32.0
-offset_right = -83.0
-offset_bottom = 87.0
+offset_left = 154.0
+offset_right = -155.0
+offset_bottom = 67.0
 grow_horizontal = 2
 
 [node name="Player1Deaths" type="Label" parent="Scorebar"]
 layout_mode = 2
 size_flags_horizontal = 2
 theme_override_font_sizes/font_size = 32
-text = "Player 1 deaths: 0"
+text = "0 "
 
 [node name="Timer" type="Label" parent="Scorebar"]
 layout_mode = 2
@@ -92,4 +93,12 @@ script = ExtResource("3_r1s8l")
 layout_mode = 2
 size_flags_horizontal = 10
 theme_override_font_sizes/font_size = 32
-text = "Player 2 deaths: 0"
+text = "0"
+
+[node name="SkullPlayer1" parent="Scorebar" instance=ExtResource("4_fyv8p")]
+transform = Transform3D(1.29065, -0.161202, 0.747146, 0.259481, 1.47159, -0.130734, -0.718946, 0.241735, 1.29409, -11.0027, 8.31213, 2.13778)
+script = ExtResource("5_vw0fs")
+
+[node name="SkullPlayer2" parent="Scorebar" instance=ExtResource("4_fyv8p")]
+transform = Transform3D(1.31998, -0.00511681, -0.712479, -0.247441, 1.40331, -0.468502, 0.668151, 0.529807, 1.23405, 11.003, 8.312, 2.138)
+script = ExtResource("5_vw0fs")

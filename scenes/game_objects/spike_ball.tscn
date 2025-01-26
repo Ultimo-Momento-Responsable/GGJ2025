@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cnm8thecqnvmi"]
+[gd_scene load_steps=5 format=3 uid="uid://5ida03lnlclj"]
 
 [ext_resource type="Script" path="res://scripts/spike_ball.gd" id="1_fl4ry"]
-[ext_resource type="PackedScene" uid="uid://wy16usqa6nud" path="res://Assets/3d_models/block_cube/block_ball.glb" id="2_bmj6n"]
+[ext_resource type="PackedScene" uid="uid://crjpms3qqprog" path="res://Assets/3d_models/block_cube/block_ball.glb" id="2_bmj6n"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_wgg1f"]
 friction = 0.0

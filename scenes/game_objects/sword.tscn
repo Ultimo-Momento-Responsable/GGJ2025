@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://chwvqg0ld6qj0"]
 
-[ext_resource type="PackedScene" uid="uid://bppeardc5w1u8" path="res://Assets/3d_models/sword/sword.glb" id="1_eue5m"]
+[ext_resource type="PackedScene" uid="uid://bin07sy4tcoi0" path="res://Assets/3d_models/sword/sword.glb" id="1_eue5m"]
 [ext_resource type="Script" path="res://scripts/sword.gd" id="1_ye3qc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kdsnl"]
