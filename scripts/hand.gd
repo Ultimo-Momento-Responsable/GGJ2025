@@ -4,6 +4,7 @@ var start: int = 1
 var state: int = 0
 var wait_seconds: float = 0
 var direction: Vector3
+var time_to_dissapear = 4
 
 var starting_positions := [
 	Vector3(24.25, 0.25, 0),
@@ -49,6 +50,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	time_to_dissapear -= delta
+	if time_to_dissapear < 0:
+		queue_free()
+		return
 	match state:
 		0:
 			#spawn
@@ -60,8 +65,8 @@ func _process(delta: float) -> void:
 			#wait a bit to enable physics
 			wait_seconds -= delta
 			if wait_seconds <= 0:
-				collision_layer = 4
-				collision_mask = 5
+				collision_layer = 1
+				collision_mask = 1
 				state += 1
 		2:
 			#set new target position
@@ -73,7 +78,6 @@ func _process(delta: float) -> void:
 			var has_reached_position = _move_towards_target_position(delta)
 			if has_reached_position:
 				state += 1
-				wait_seconds = 0.5
 		4:
 			#wait a bit to despawn
 			collision_layer = 0

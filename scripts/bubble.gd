@@ -41,6 +41,7 @@ func _ready() -> void:
 		my_material.set_shader_parameter("outline_color", Vector4( 0.25, 1.0, 0.35, 1.0 ))
 
 func _process(delta: float) -> void:
+	print("hola")
 	if i_time > 0:
 		if (i_animation % 4 == 0):
 			visible = !visible
