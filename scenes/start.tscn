@@ -1,0 +1,131 @@
+[gd_scene load_steps=7 format=3 uid="uid://dkilwsks8yfab"]
+
+[ext_resource type="Script" path="res://scenes/load_shaders.gd" id="1_da4n0"]
+[ext_resource type="Shader" path="res://control.gdshader" id="1_fdirm"]
+[ext_resource type="FontFile" uid="uid://j3vnv5d2x0q8" path="res://Assets/fonts/Bubble gum.otf" id="2_60ybf"]
+[ext_resource type="PackedScene" uid="uid://bxkq51wj88e0s" path="res://scenes/intro.tscn" id="2_kfne2"]
+[ext_resource type="Script" path="res://scenes/animated_font.gd" id="3_g88en"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_migk3"]
+shader = ExtResource("1_fdirm")
+shader_parameter/polar_coordinates = false
+shader_parameter/polar_center = Vector2(0.5, 0.5)
+shader_parameter/polar_zoom = 1.0
+shader_parameter/polar_repeat = 1.0
+shader_parameter/spin_rotation = 20.0
+shader_parameter/spin_speed = 5.0
+shader_parameter/offset = Vector2(0, 0.4)
+shader_parameter/colour_1 = Color(0.524145, 0.000234926, 0.536787, 1)
+shader_parameter/colour_2 = Color(0.579558, 0.00183455, 0.781989, 1)
+shader_parameter/colour_3 = Color(0, 0, 0, 1)
+shader_parameter/contrast = 2.0
+shader_parameter/lighting = 0.2
+shader_parameter/spin_amount = 0.01
+shader_parameter/pixel_filter = 4096.0
+
+[node name="Start" type="Node3D"]
+metadata/_edit_vertical_guides_ = [-70.0]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_da4n0")
+scene_to_change = ExtResource("2_kfne2")
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+z_index = -1
+material = SubResource("ShaderMaterial_migk3")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -178.0
+offset_bottom = -114.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="ggj2025" type="RichTextLabel" parent="Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/default_color = Color(1, 1, 1, 0.694118)
+theme_override_fonts/normal_font = ExtResource("2_60ybf")
+theme_override_font_sizes/normal_font_size = 45
+bbcode_enabled = true
+text = "[center]Created for the Global Game Jam 2025[/center]"
+script = ExtResource("3_g88en")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -106.0
+offset_bottom = -53.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="authors" type="RichTextLabel" parent="Control/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/default_color = Color(1, 1, 1, 0.580392)
+theme_override_fonts/normal_font = ExtResource("2_60ybf")
+theme_override_font_sizes/normal_font_size = 26
+bbcode_enabled = true
+text = "[center]By ArmatorX, Fenlethmarg, Pal and Rassyu[/center]"
+script = ExtResource("3_g88en")
+
+[node name="Title" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -560.0
+offset_bottom = -312.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="ggj2025" type="RichTextLabel" parent="Control/Title"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/normal_font = ExtResource("2_60ybf")
+theme_override_font_sizes/normal_font_size = 92
+bbcode_enabled = true
+text = "[center]Bubble gladiators popful revenge[/center]"
+fit_content = true
+script = ExtResource("3_g88en")
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -63.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="loading" type="RichTextLabel" parent="Control/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/default_color = Color(1, 1, 1, 0.580392)
+theme_override_fonts/normal_font = ExtResource("2_60ybf")
+theme_override_font_sizes/normal_font_size = 26
+bbcode_enabled = true
+text = "[center]Loading assets...[/center]"
+script = ExtResource("3_g88en")
