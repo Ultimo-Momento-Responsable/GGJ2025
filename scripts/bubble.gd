@@ -10,8 +10,11 @@ class_name Bubble
 @export var extra_size: float = 0.5
 @export var power_force: float = 15
 @export var initial_position: Vector3
+@export var i_time = 1.5
 
+var i_animation = 0
 var deaths = 0
+var initial_i_time = i_time
 var initial_scale = scale
 var initial_max_speed = max_speed
 var boosters: int = 0
@@ -27,7 +30,17 @@ func _ready() -> void:
 	if name == "Player2":
 		my_material.set_shader_parameter("outline_color", Vector4( 0.25, 1.0, 0.35, 1.0 ))
 
+func _process(delta: float) -> void:
+	if i_time > 0:
+		if (i_animation % 4 == 0):
+			visible = !visible
+		i_animation += 1
+	else: 
+		visible = true
+
 func _physics_process(delta: float) -> void:
+	if i_time > 0:
+		i_time -= delta
 	_custom_physics(delta)
 
 func _custom_physics(delta: float) -> void:
@@ -58,7 +71,8 @@ func _custom_physics(delta: float) -> void:
 			var collision_normal = collision.get_normal()
 
 			if collider and collider.is_in_group("hazards"):
-				_pop_bubble()
+				if i_time <= 0:
+					_pop_bubble()
 			elif collider and collider is Bubble:
 				_handle_bubble_collision(collider as Bubble, collision_normal)
 			elif collider and collider.is_in_group("boundaries"):
@@ -94,6 +108,8 @@ func _pop_bubble() -> void:
 		_reset_values()
 
 func _reset_values():
+	i_animation = 0
+	i_time = initial_i_time
 	position = initial_position
 	scale = initial_scale
 	boosters = 0

@@ -10,7 +10,7 @@ func _ready() -> void:
 	tween.tween_property(self, "scale", Vector3(1.0, 1.0 ,1.0), 0.5)
 	await tween.finished
 	$CollisionShape3D.disabled = false
-	apply_impulse(Vector3(0, -700, 0))
+	apply_impulse(Vector3(0, -600, 0))
 	# linear_velocity = base_speed * Vector3.DOWN
 
 func _process(delta):
