@@ -6,7 +6,10 @@ var direction = Vector3.ZERO        # Dirección inicial aleatoria
 
 func _ready():
 	# Generar una dirección aleatoria al inicio
+	scale = Vector3(0.0, 0.0, 0.0)
 	direction = Vector3(randf_range(-1, 1), randf_range(-1, 1), 0).normalized()
+	var tween = create_tween()
+	tween.tween_property(self, "scale", Vector3(1.0, 1.0 ,1.0), 0.2)
 
 func _physics_process(delta):
 	# Acelerar en la dirección inicial

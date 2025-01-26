@@ -13,6 +13,7 @@ class_name Bubble
 var initial_scale = scale
 var boosters: int = 0
 var aoe_active: bool = false  # Para evitar activar múltiples AOEs al mismo tiempo
+var dying_state: bool = false
 
 func _ready() -> void:
 	# Set color according to which type of bubble I am
@@ -80,7 +81,13 @@ func _handle_bubble_collision(other_bubble: Bubble, collision_normal: Vector3) -
 	other_bubble.velocity += collision_normal * collision_speed
 
 func _pop_bubble() -> void:
-	queue_free()
+	if dying_state == false:
+		dying_state = true
+		remove_child($MeshInstance3D)
+		$GPUParticles3D.restart()
+		$GPUParticles3D2.restart()
+		await $GPUParticles3D.finished
+		queue_free()
 
 func _bounce(normal: Vector3) -> void:
 	velocity = velocity.bounce(normal)

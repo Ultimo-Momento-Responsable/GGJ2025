@@ -1,10 +1,51 @@
-[gd_scene load_steps=4 format=3 uid="uid://dlq4cok71iv22"]
+[gd_scene load_steps=12 format=3 uid="uid://dlq4cok71iv22"]
 
 [ext_resource type="PackedScene" uid="uid://bc012dmlvsw10" path="res://Assets/3d_models/weight/weight.glb" id="1_k2ioh"]
 [ext_resource type="Script" path="res://scripts/weight.gd" id="1_li8sa"]
+[ext_resource type="Texture2D" uid="uid://15dqp2kh8ig6" path="res://Assets/textures/Flare00.PNG" id="3_gskl4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ycbij"]
 size = Vector3(1.36676, 1.83582, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wafi0"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("3_gskl4")
+
+[sub_resource type="Curve" id="Curve_pwq4j"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.963768, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_pmhni"]
+max_value = 5.0
+_data = [Vector2(0, 5), 0.0, 0.0, 0, 0, Vector2(1e-05, 5), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_35l3c"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1e-05, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_4xrqn"]
+curve_x = SubResource("Curve_pwq4j")
+curve_y = SubResource("Curve_pmhni")
+curve_z = SubResource("Curve_35l3c")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_thmbv"]
+particle_flag_align_y = true
+emission_shape = 1
+emission_sphere_radius = 0.2
+spread = 180.0
+initial_velocity_min = 20.0
+initial_velocity_max = 25.0
+gravity = Vector3(0, 20, 0)
+scale_min = 0.15
+scale_max = 0.5
+scale_curve = SubResource("CurveXYZTexture_4xrqn")
+color = Color(0.889529, 0.947661, 1, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_nkkbe"]
 
 [node name="Weight" type="RigidBody3D" groups=["hazards"]]
 mass = 10.0
@@ -15,5 +56,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00912476, 1.01934, 0)
 shape = SubResource("BoxShape3D_ycbij")
 
 [node name="weight" parent="." instance=ExtResource("1_k2ioh")]
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="."]
+material_override = SubResource("StandardMaterial3D_wafi0")
+emitting = false
+amount = 20
+lifetime = 0.6
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+trail_enabled = true
+process_material = SubResource("ParticleProcessMaterial_thmbv")
+draw_pass_1 = SubResource("QuadMesh_nkkbe")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
