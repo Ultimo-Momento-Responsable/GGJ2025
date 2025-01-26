@@ -1,14 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://dj72iyjyj1pdf"]
+[gd_scene load_steps=4 format=3 uid="uid://bd1kkp7epds7b"]
 
 [ext_resource type="Script" path="res://scripts/hand.gd" id="1_ev6is"]
-[ext_resource type="PackedScene" uid="uid://djh62bi77dfbs" path="res://Assets/3d_models/hand/hand.glb" id="2_enpig"]
+[ext_resource type="PackedScene" uid="uid://c1b5h1m875v5b" path="res://Assets/3d_models/hand/hand.glb" id="2_enpig"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p6cua"]
 size = Vector3(1, 8.91553, 4.33813)
 
 [node name="Hand" type="RigidBody3D"]
-collision_layer = 0
-collision_mask = 0
+collision_layer = 8
+collision_mask = 9
 axis_lock_linear_z = true
 axis_lock_angular_x = true
 axis_lock_angular_y = true

@@ -26,8 +26,6 @@ func playSound(sound):
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	playSound(spawnSound)
-	collision_layer = 0
-	collision_mask = 0
 	match start:
 		0:
 			position = starting_positions[start]
@@ -65,13 +63,14 @@ func _process(delta: float) -> void:
 			#wait a bit to enable physics
 			wait_seconds -= delta
 			if wait_seconds <= 0:
-				collision_layer = 1
-				collision_mask = 1
 				state += 1
 		2:
 			#set new target position
 			playSound(moveSound)
-			target_position = starting_positions[start] + direction * 38
+			var adjustment_constant = 37.5
+			if start == 1 or start == 3:
+				adjustment_constant = 37
+			target_position = starting_positions[start] + direction * adjustment_constant
 			state += 1
 		3:
 			#start moving towards new pos
@@ -80,8 +79,6 @@ func _process(delta: float) -> void:
 				state += 1
 		4:
 			#wait a bit to despawn
-			collision_layer = 0
-			collision_mask = 0
 			var tween = create_tween()
 			tween.tween_property(self, "scale", Vector3(0.1, 0.1 ,0.1), 0.2)
 			await tween.finished
