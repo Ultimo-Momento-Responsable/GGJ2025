@@ -15,9 +15,9 @@
 [ext_resource type="Script" path="res://scripts/cones.gd" id="12_pbg3b"]
 [ext_resource type="Script" path="res://scripts/scene_controller.gd" id="14_1pa53"]
 [ext_resource type="Script" path="res://scripts/hands.gd" id="14_a61sw"]
-[ext_resource type="AudioStream" uid="uid://co4whtsg0vgq8" path="res://Assets/music/background_music_ggj2025.ogg" id="15_j4nwh"]
-[ext_resource type="PackedScene" path="res://scenes/score.tscn" id="16_rvqlq"]
-[ext_resource type="PackedScene" uid="uid://bd1kkp7epds7b" path="res://scenes/game_objects/hand.tscn" id="17_an8oe"]
+[ext_resource type="AudioStream" uid="uid://o1kxoaccli7r" path="res://Assets/music/background_music_ggj2025.ogg" id="15_j4nwh"]
+[ext_resource type="PackedScene" uid="uid://codrsxqjrbdue" path="res://scenes/score.tscn" id="16_rvqlq"]
+[ext_resource type="PackedScene" path="res://scenes/game_objects/hand.tscn" id="17_an8oe"]
 
 [sub_resource type="Environment" id="Environment_vhovg"]
 background_color = Color(1, 1, 1, 1)
@@ -114,6 +114,6 @@ is_moving = false
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_j4nwh")
-volume_db = -20.0
+volume_db = -18.0
 script = ExtResource("14_1pa53")
 score_scene = ExtResource("16_rvqlq")
