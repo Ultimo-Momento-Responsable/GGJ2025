@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://btutgdslx4cfa"]
 
-[ext_resource type="PackedScene" uid="uid://da7bjvpvdxtn7" path="res://Assets/3d_models/boundary/boundaryGlass.glb" id="1_rxvlb"]
+[ext_resource type="PackedScene" uid="uid://bxhoifrky3xhc" path="res://Assets/3d_models/boundary/boundaryGlass.glb" id="1_rxvlb"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1dxn7"]
 
@@ -29,7 +29,7 @@ bounce = 1.0
 
 [node name="Limits" type="Node"]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="StaticBody3D" type="StaticBody3D" parent="." groups=["boundaries"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5, 0, 0)
 physics_material_override = SubResource("PhysicsMaterial_1dxn7")
 
@@ -44,7 +44,7 @@ mesh = SubResource("BoxMesh_vf5y7")
 [node name="boundaryGlass" parent="StaticBody3D" instance=ExtResource("1_rxvlb")]
 transform = Transform3D(0.5, 0, 0, 0, 11, 0, 0, 0, 2, 0, -11, 0)
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+[node name="StaticBody3D2" type="StaticBody3D" parent="." groups=["boundaries"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5, 0, 0)
 physics_material_override = SubResource("PhysicsMaterial_1dxn7")
 
@@ -59,7 +59,7 @@ mesh = SubResource("BoxMesh_vf5y7")
 [node name="boundaryGlass" parent="StaticBody3D2" instance=ExtResource("1_rxvlb")]
 transform = Transform3D(0.5, 0, 0, 0, 11, 0, 0, 0, 2, 0, -11, 0)
 
-[node name="StaticBody3D3" type="StaticBody3D" parent="."]
+[node name="StaticBody3D3" type="StaticBody3D" parent="." groups=["boundaries"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10.5, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D3"]
@@ -73,7 +73,7 @@ mesh = SubResource("BoxMesh_vf5y7")
 [node name="boundaryGlass" parent="StaticBody3D3" instance=ExtResource("1_rxvlb")]
 transform = Transform3D(18, 0, 0, 0, 0.5, 0, 0, 0, 2, 0, -0.5, 0)
 
-[node name="StaticBody3D4" type="StaticBody3D" parent="."]
+[node name="StaticBody3D4" type="StaticBody3D" parent="." groups=["boundaries"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.5, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D4"]
@@ -87,7 +87,7 @@ mesh = SubResource("BoxMesh_vf5y7")
 [node name="boundaryGlass" parent="StaticBody3D4" instance=ExtResource("1_rxvlb")]
 transform = Transform3D(18, 0, 0, 0, 0.5, 0, 0, 0, 2, 0, -0.5, 0)
 
-[node name="StaticBody3D5" type="StaticBody3D" parent="."]
+[node name="StaticBody3D5" type="StaticBody3D" parent="." groups=["boundaries"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 9, 0)
 physics_material_override = SubResource("PhysicsMaterial_7svh6")
 
@@ -95,7 +95,7 @@ physics_material_override = SubResource("PhysicsMaterial_7svh6")
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 shape = SubResource("BoxShape3D_f067w")
 
-[node name="StaticBody3D7" type="StaticBody3D" parent="."]
+[node name="StaticBody3D7" type="StaticBody3D" parent="." groups=["boundaries"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, -9, 0)
 physics_material_override = SubResource("PhysicsMaterial_7svh6")
 
@@ -103,7 +103,7 @@ physics_material_override = SubResource("PhysicsMaterial_7svh6")
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 shape = SubResource("BoxShape3D_f067w")
 
-[node name="StaticBody3D6" type="StaticBody3D" parent="."]
+[node name="StaticBody3D6" type="StaticBody3D" parent="." groups=["boundaries"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, -9, 0)
 physics_material_override = SubResource("PhysicsMaterial_7svh6")
 
@@ -111,7 +111,7 @@ physics_material_override = SubResource("PhysicsMaterial_7svh6")
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 shape = SubResource("BoxShape3D_f067w")
 
-[node name="StaticBody3D8" type="StaticBody3D" parent="."]
+[node name="StaticBody3D8" type="StaticBody3D" parent="." groups=["boundaries"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 9, 0)
 physics_material_override = SubResource("PhysicsMaterial_7svh6")
 

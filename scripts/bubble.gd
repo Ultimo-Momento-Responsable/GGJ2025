@@ -22,8 +22,6 @@ func _ready() -> void:
 		my_material.set_shader_parameter("outline_color", Vector4( 0.192, 0.166, 0.69, 1.0 ))
 	if name == "Player2":
 		my_material.set_shader_parameter("outline_color", Vector4( 0.25, 1.0, 0.35, 1.0 ))
-	if name == "bubble_booster":
-		my_material.set_shader_parameter("outline_color", Vector4( 1.0, 1.0, 1.0, 1.0 ))
 
 func _physics_process(delta: float) -> void:
 	_custom_physics(delta)
@@ -55,18 +53,18 @@ func _custom_physics(delta: float) -> void:
 			var collider = collision.get_collider()
 			var collision_normal = collision.get_normal()
 
-			if collider and collider is Bubble:
-				_handle_bubble_collision(collider as Bubble, collision_normal)
-			elif collider and collider.is_in_group("hazards"):
+			if collider and collider.is_in_group("hazards"):
 				_pop_bubble()
+			elif collider and collider is Bubble:
+				_handle_bubble_collision(collider as Bubble, collision_normal)
+			elif collider and collider.is_in_group("boundaries"):
+				_bounce(collision_normal)
 			elif collider and collider.is_in_group("boosters"):
 				collider.queue_free()
 				boosters += 1
 				scale += Vector3(extra_size, extra_size, extra_size)
 				if max_speed > 8:
 					max_speed -= 2
-			else:
-				_bounce(collision_normal)
 
 func _handle_bubble_collision(other_bubble: Bubble, collision_normal: Vector3) -> void:
 	# Simular física de bolas de billar

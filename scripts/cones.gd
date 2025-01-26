@@ -1,21 +1,12 @@
 extends Node3D
 
 @export var cone: PackedScene
-@export var spawn_interval = 5  # Tiempo entre instancias en segundos
 var move_speed = 5.0 # Speed at which the cones move
 var edge_distance = 20.0 # Distance from the edge to stop the cone
 var x_edge_offset: float = 20
 var y_edge_offset: float = 20
 var x_edge: float = 16
 var y_edge: float = 8
-var spawn_timer = 0.0
-
-func _process(delta):
-	spawn_timer += delta
-	if spawn_timer >= spawn_interval:
-		spawn_timer = 0.0
-		spawn_object()
-
 
 func spawn_object():
 	var facing_position: Vector3
